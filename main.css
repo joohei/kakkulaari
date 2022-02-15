@@ -67,6 +67,12 @@ hr {
   height: 446px;
 }
 
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 nav {
   background: #D6CCC2;
   font-family: "Cambria";
@@ -88,7 +94,7 @@ nav h1 {
 }
 
 nav ul {
-  display: inline
+  display: inline;
 }
 
 nav ul li {
