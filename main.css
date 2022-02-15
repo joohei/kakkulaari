@@ -67,13 +67,10 @@ hr {
   height: 446px;
 }
 
-header {
+nav {
   position: fixed;
   top: 0;
   width: 100%;
-}
-
-nav {
   background: #D6CCC2;
   font-family: "Cambria";
 }
