@@ -89,7 +89,9 @@ nav ul .active {
 }
 
 .recent {
-  margin: 0;
+  margin: 0 3%;
+  position: absolute;
+  right: 0;
 }
 
 .recent img {
