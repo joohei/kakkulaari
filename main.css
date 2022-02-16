@@ -29,13 +29,14 @@ nav h1 {
 nav ul {
   margin: 0;
   padding: 0;
-  display: inline;
-  float: right;
+  position: absolute;
+  right: 0;
+  top: 25%;
+  bottom: 25%;
   width: 30%;
   height: 8.75vh;
   display: inline;
   list-style-type: none;
-  text-align: center;
 }
 
 nav ul li {
