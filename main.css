@@ -21,7 +21,7 @@ nav h1 {
   float: left;
   font-family: "cookie";
   font-size: 64px;
-  color: white;
+  color: #7F5539;
 }
 
 nav ul {
@@ -35,7 +35,7 @@ nav ul li {
   margin: 0;
   padding: 10px;
   border-radius: 50px;
-  background: #EDE0D4;
+  background: #EDEDE9;
   display: inline;
   font-family: "monospace bold";
   font-size: 16px;
