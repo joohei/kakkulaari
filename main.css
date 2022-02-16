@@ -76,12 +76,16 @@ nav ul li a {
 }
 
 .line.long {
-  width: 92vw;
+  width: 94%
 }
 
 .gallery {
   margin: 0;
   display: inline-block;
+  width: 100%;
+}
+
+.gallery.line.long {
   width: 100%;
 }
 
