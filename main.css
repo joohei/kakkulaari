@@ -86,12 +86,13 @@ nav ul li a {
 }
 
 .gallery img {
-  margin: 0;
-  padding-right: 32px;
-  padding-bottom: 32px;
-  overflow: hidden;
+  margin-bottom: 32px;
   display: inline-block;
   object-fit: cover;
-  width: 552px;
-  height: 552px;
+  width: 572px;
+  height: 572px;
+}
+
+.gallery img + .gallery img {
+  margin-left: 32px;
 }
