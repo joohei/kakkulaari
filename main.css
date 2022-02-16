@@ -15,6 +15,11 @@ nav {
   background: red;
 }
 
+nav h1 {
+  margin: 0;
+  display: inline;
+}
+
 nav ul {
   margin: 0;
   display: inline;
