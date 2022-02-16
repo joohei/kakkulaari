@@ -105,6 +105,7 @@ nav ul .active {
 }
 
 .recent img {
+  top: 15%;
   object-fit: cover;
   width: 20vw;
   height: 20vw;
