@@ -90,26 +90,24 @@ nav ul .active {
 
 .text {
   margin: 0;
-  position: absolute;
 }
 
 .recent {
   margin: 0 3%;
-  position: relative;
-  float: right;
+  position: absolute;
+  right: 3%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 2vw;
+  width: 20vw;
 }
 
 .recent div {
   margin-bottom: 0.5%;
-  top: 0;
-  right: 0;
-  height: 50%;
   border-bottom: 1px solid black;
 }
 
 .recent img {
-  top: 10%;
-  right: 0;
   object-fit: cover;
   width: 20vw;
   height: 20vw;
