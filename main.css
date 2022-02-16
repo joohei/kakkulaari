@@ -90,13 +90,12 @@ nav ul .active {
 
 .recent {
   margin: 0;
-  display: inline-block;
 }
 
 .recent img {
   object-fit: cover;
-  width: 30vw;
-  height: 50vw;
+  width: 20vw;
+  height: 20vw;
 }
 
 .gallery {
