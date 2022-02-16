@@ -26,6 +26,9 @@ nav h1 {
 
 nav ul {
   margin: 0;
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
   display: inline;
   float: right;
   list-style-type: none;
@@ -33,10 +36,10 @@ nav ul {
 
 nav ul li {
   margin: 0;
-  padding: 10px;
+  display: inline;
+  padding: 9px;
   border-radius: 50px;
   background: #EDEDE9;
-  display: inline;
   font-family: "monospace bold";
   font-size: 16px;
   color: #7F5539;
