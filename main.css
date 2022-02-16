@@ -38,7 +38,7 @@ nav ul {
 
 nav ul li {
   margin: 0;
-  display: inline;
+  display: inline-block;
   padding: 9px;
   border-radius: 50px;
   background: #EDEDE9;
