@@ -1,3 +1,7 @@
+html {
+  margin: 0;
+}
+
 body {
   margin: 0;
 }
@@ -51,4 +55,28 @@ nav ul li {
 nav ul li a {
   color: inherit;
   text-decoration: none;
+}
+
+.content {
+  margin-top: 70px;
+}
+
+.headline {
+  margin-bottom: 0;
+  font-family: "monospace bold";
+  font-size: 24px;
+  color: #7F5539;
+}
+
+.line {
+  margin: 0 16px;
+  color: red;
+}
+
+.line .short {
+  width: 60%
+}
+
+.line .long {
+  width: 100%
 }
