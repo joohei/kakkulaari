@@ -81,18 +81,16 @@ nav ul li a {
 
 .gallery {
   margin: 0;
-  display: inline-block;
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 32px;
+  grid-row-gap: 32px;
   width: 94%;
 }
 
 .gallery img {
-  margin-bottom: 32px;
-  display: inline-block;
+  display: block;
   object-fit: cover;
   width: 552px;
   height: 552px;
-}
-
-.gallery img + img {
-  margin-left: 32px;
 }
