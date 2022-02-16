@@ -55,6 +55,14 @@ nav ul li a {
   text-decoration: none;
 }
 
+nav ul li:hover {
+  color: #E6CCB2;
+}
+
+nav ul li .active {
+  color: #E6CCB2;
+}
+
 .content {
   margin-top: 6%;
   margin-left: 3%;
