@@ -76,7 +76,7 @@ nav ul li a {
 }
 
 .line.long {
-  width: 97%;
+  width: calc(3*30vw+2*32px);
 }
 
 .gallery {
@@ -85,7 +85,7 @@ nav ul li a {
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 32px;
   grid-row-gap: 32px;
-  width: 97%;
+  width: calc(3*30vw+2*32px);
 }
 
 .gallery img {
