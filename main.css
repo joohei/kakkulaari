@@ -27,16 +27,16 @@ nav h1 {
 nav ul {
   margin: 0;
   display: inline;
-  position: absolute;
-  top: 25%;
-  bottom: 25%;
+  position: relative;
   list-style-type: none;
 }
 
 nav ul li {
   margin: 0;
   display: inline;
-  position: relative;
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
   padding: 9px;
   border-radius: 50px;
   background: #EDEDE9;
