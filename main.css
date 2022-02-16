@@ -108,6 +108,7 @@ nav ul .active {
   font-family: "monospace bold";
   font-size: 2vh;
   color: #7F5539;
+  text-align: center;
 }
 
 .recent img {
