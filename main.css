@@ -12,7 +12,7 @@ nav {
   top: 0;
   width: 100vw;
   height: 70px;
-  background: brown;
+  background: #D6CCC2;
 }
 
 nav h1 {
@@ -35,11 +35,11 @@ nav ul li {
   margin: 0;
   padding: 10px;
   border-radius: 50px;
-  background: beige;
+  background: #EDE0D4;
   display: inline;
   font-family: "monospace bold";
   font-size: 16px;
-  color: white;
+  color: #7F5539;
 }
 
 nav ul li a {
