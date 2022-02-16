@@ -89,8 +89,8 @@ nav ul li a {
   margin-bottom: 32px;
   display: inline-block;
   object-fit: cover;
-  width: 560px;
-  height: 560px;
+  width: 552px;
+  height: 552px;
 }
 
 .gallery img + img {
