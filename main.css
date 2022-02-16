@@ -93,11 +93,11 @@ nav ul .active {
 }
 
 .recent {
-  margin: 0 3%;
+  margin: 0;
   position: absolute;
   right: 3%;
   display: grid;
-  grid-template-rows: .1fr 1fr;
+  grid-template-rows: .15fr 1fr;
   grid-row-gap: 0.5vw;
   width: 20vw;
 }
