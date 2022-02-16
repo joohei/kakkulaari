@@ -25,10 +25,13 @@ nav h1 {
 }
 
 nav ul {
-  margin: 25% 0%;
+  position: absolute;
+  right: 10%;
+  top: 25%;
+  bottom: 25%;
+  margin: 0;
   padding: 0;
   display: inline;
-  float: right;
   list-style-type: none;
 }
 
