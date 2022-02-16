@@ -103,6 +103,7 @@ nav ul {
 }
 
 nav ul li {
+  margin-left: 1%;
   display: inline-block;
   list-style-type: none;
   font-family: "monospace bold";
