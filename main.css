@@ -7,6 +7,7 @@ body {
 body p {
   margin-left: 4%;
   margin-right: 4%;
+  margin-bottom: 0;
   font-family: "monospace bold";
   font-size: 24px;
   letter-spacing: 2px;
@@ -18,7 +19,7 @@ hr {
   margin-left: 4%;
   margin-right: 4%;
   float: left;
-  width: 100%;
+  width: 92%;
   color: lightgray;
 }
 
@@ -26,7 +27,7 @@ hr {
   margin-top: 0;
   margin-left: 4%;
   margin-right: 4%;
-  width: 100%;
+  width: 92%;
   color: lightgray;
 }
 
@@ -99,7 +100,7 @@ nav ul {
 }
 
 nav ul li {
-  margin: 1%;
+  margin: 1.5%;
   display: inline-block;
   list-style-type: none;
   font-family: "monospace bold";
