@@ -76,7 +76,7 @@ nav ul li a {
 }
 
 .line.long {
-  width: 94%;
+  width: 97%;
 }
 
 .gallery {
@@ -85,7 +85,7 @@ nav ul li a {
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 32px;
   grid-row-gap: 32px;
-  width: 94%;
+  width: 97%;
 }
 
 .gallery img {
