@@ -91,6 +91,6 @@ nav ul li a {
 .gallery img {
   display: block;
   object-fit: cover;
-  width: 564px;
-  height: 564px;
+  width: 30vw;
+  height: 30vw;
 }
