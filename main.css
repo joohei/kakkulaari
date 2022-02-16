@@ -86,7 +86,7 @@ nav h1 {
   display: inline;
   color: #7F5539;
   font-family: "Cookie";
-  font-size: 7.5vw;
+  font-size: 3.75vw;
 }
 
 .nav-content {
@@ -107,7 +107,7 @@ nav ul li {
   display: inline-block;
   list-style-type: none;
   font-family: "monospace bold";
-  font-size: 1.875vw;
+  font-size: 0.9375vw;
   color: #7F5539;
   background: #EDEDE9;
   border-radius: 50px;
