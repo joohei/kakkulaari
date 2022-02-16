@@ -68,12 +68,11 @@ hr {
 }
 
 nav {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   background: #D6CCC2;
   font-family: "Cambria";
-  z-index: 9999;
 }
 
 nav h1 {
@@ -118,9 +117,4 @@ nav ul li:hover {
 nav ul li a {
   color: #7F5539;
   text-decoration: none;
-}
-
-.content {
-  margin-top: 96px;
-  position: relative;
 }
