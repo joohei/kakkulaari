@@ -30,17 +30,16 @@ nav ul {
   margin: 0;
   padding: 0;
   position: absolute;
-  right: 0;
+  right: 3%;
   top: 25%;
   bottom: 25%;
-  width: 40%;
   display: inline;
   list-style-type: none;
   text-align: center;
 }
 
 nav ul li {
-  margin: 0 1%;
+  margin: 0;
   display: inline-block;
   padding: 1%;
   border-radius: 50px;
@@ -48,6 +47,10 @@ nav ul li {
   font-family: "monospace bold";
   font-size: 2vh;
   color: #7F5539;
+}
+
+nav ul li + li {
+  margin-left: 1%;
 }
 
 nav ul li a {
