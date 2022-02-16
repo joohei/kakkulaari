@@ -18,10 +18,13 @@ nav {
 nav h1 {
   margin: 0;
   display: inline;
+  float: left;
 }
 
 nav ul {
   margin: 0;
+  display: inline;
+  float: right;
   list-style-type: none;
 }
 
