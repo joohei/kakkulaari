@@ -101,12 +101,15 @@ nav ul .active {
 
 .recent div {
   margin-bottom: 0.5%;
-  top: 7%;
+  top: 0;
+  right: 0;
+  height: 50%;
   border-bottom: 1px solid black;
 }
 
 .recent img {
-  top: 15%;
+  top: 10%;
+  right: 0;
   object-fit: cover;
   width: 20vw;
   height: 20vw;
