@@ -95,8 +95,8 @@ nav ul .active {
 .recent {
   margin: 0;
   position: absolute;
-  right: 2%;
-  top: 5%;
+  right: 2.5%;
+  top: 10%;
   display: grid;
   grid-template-rows: .1fr 1fr;
   grid-row-gap: 0.5vw;
