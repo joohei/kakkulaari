@@ -60,7 +60,6 @@ nav ul li a {
 .content {
   margin-top: 96px;
   margin-left: 16px;
-  display: flex;
 }
 
 .headline {
@@ -75,9 +74,9 @@ nav ul li a {
 }
 
 .line.short {
-  width: 60%;
+  width: 60vw;
 }
 
 .line.long {
-  width: 100%;
+  width: 92vw;
 }
