@@ -88,6 +88,17 @@ nav ul .active {
   width: calc(3 * 30vw + 2 * 2%);
 }
 
+.recent {
+  margin: 0;
+  display: inline-block;
+}
+
+.recent img {
+  object-fit: cover;
+  width: 30vw;
+  height: 50vw;
+}
+
 .gallery {
   margin: 0;
   display: grid;
