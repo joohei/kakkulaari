@@ -4,12 +4,12 @@ body {
 
 header {
   margin: 0;
-  position: fixed;
-  top: 0;
 }
 
 nav {
   margin: 0;
+  position: fixed;
+  top: 0;
   width: 100%;
   height: 7.5%;
   background: red;
@@ -19,12 +19,18 @@ nav h1 {
   margin: 0;
   display: inline;
   float: left;
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
 }
 
 nav ul {
   margin: 0;
   display: inline;
   float: right;
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
   list-style-type: none;
 }
 
