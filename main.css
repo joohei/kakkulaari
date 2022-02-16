@@ -16,8 +16,9 @@ body p {
 hr {
   margin-top: 0;
   margin-left: 4%;
+  margin-right: 4%;
   float: left;
-  width: 1020px;
+  width: 100%;
   color: lightgray;
 }
 
@@ -106,7 +107,7 @@ nav ul li {
   color: #7F5539;
   background: #EDEDE9;
   border-radius: 50px;
-  padding: 1%;
+  padding: .5%;
 }
 
 nav ul li:hover {
