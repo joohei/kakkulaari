@@ -18,7 +18,7 @@ nav {
 }
 
 nav h1 {
-  margin: 0 16px;
+  margin: 0 2vw;
   display: inline;
   float: left;
   font-family: "cookie";
@@ -46,7 +46,7 @@ nav ul li {
   border-radius: 50px;
   background: #EDEDE9;
   font-family: "monospace bold";
-  font-size: 16px;
+  font-size: 2vh;
   color: #7F5539;
 }
 
@@ -56,9 +56,9 @@ nav ul li a {
 }
 
 .content {
-  margin-top: 96px;
-  margin-left: 48px;
-  margin-right: 48px;
+  margin-top: 6%;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 .headline {
