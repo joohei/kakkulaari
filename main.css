@@ -19,6 +19,8 @@ nav h1 {
   margin: 0;
   display: inline;
   float: left;
+  font-family: "Cambria";
+  font-size: 64px;
 }
 
 nav ul {
@@ -31,4 +33,6 @@ nav ul {
 nav ul li {
   margin: 0;
   display: inline;
+  font-family: "monospace bold";
+  font-size: 16px;
 }
