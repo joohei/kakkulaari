@@ -86,8 +86,10 @@ nav ul li a {
 }
 
 .gallery img {
-  margin-right: 32px;
-  margin-bottom: 32px;
+  margin: 0;
+  padding-right: 32px;
+  padding-bottom: 32px;
+  overflow: hidden;
   display: inline-block;
   object-fit: cover;
   width: 568px;
