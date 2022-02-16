@@ -19,9 +19,8 @@ nav {
 
 nav h1 {
   margin: 0 1%;
-  position: absolute;
-  left: 0;
   display: inline;
+  float: left;
   font-family: "cookie";
   font-size: 8vh;
   color: #7F5539;
@@ -34,7 +33,7 @@ nav ul {
   right: 0;
   top: 25%;
   bottom: 25%;
-  width: 100%;
+  width: 30%;
   display: inline;
   list-style-type: none;
   text-align: center;
