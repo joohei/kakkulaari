@@ -105,6 +105,9 @@ nav ul .active {
 .recent div {
   padding-bottom: 0.5vw;
   border-bottom: 1px solid black;
+  font-family: "monospace bold";
+  font-size: 1vh;
+  color: #7F5539;
 }
 
 .recent img {
