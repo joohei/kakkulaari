@@ -42,7 +42,7 @@ nav ul {
 nav ul li {
   margin: 0 1%;
   display: inline-block;
-  padding: 9px;
+  padding: 0.5625%;
   border-radius: 50px;
   background: #EDEDE9;
   font-family: "monospace bold";
