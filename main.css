@@ -88,10 +88,20 @@ nav ul .active {
   width: calc(3 * 30vw + 2 * 2%);
 }
 
+.text {
+  margin: 0;
+  position: absolute;
+}
+
 .recent {
   margin: 0 3%;
-  position: absolute;
-  right: 0;
+  position: relative;
+  float: right;
+}
+
+.recent div {
+  margin-bottom: 0.5%;
+  top: 10%;
 }
 
 .recent img {
