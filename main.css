@@ -82,7 +82,7 @@ nav ul li a {
 .gallery {
   margin: 0;
   display: grid;
-  grid-template-rows: auto;
+  grid-auto-rows: auto;
   grid-auto-flow: column;
   grid-column-gap: 32px;
   grid-row-gap: 32px;
