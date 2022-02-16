@@ -32,7 +32,11 @@ nav ul {
 
 nav ul li {
   margin: 0;
+  padding: 10px;
+  border-radius: 50px;
+  background: darkred;
   display: inline;
   font-family: "monospace bold";
   font-size: 16px;
+  color: white;
 }
