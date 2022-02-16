@@ -101,7 +101,8 @@ nav ul .active {
 
 .recent div {
   margin-bottom: 0.5%;
-  top: 10%;
+  top: 7%;
+  border-bottom: 1px solid black;
 }
 
 .recent img {
