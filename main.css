@@ -126,6 +126,12 @@ nav ul .active {
   display: inline-block;
 }
 
+.ig-widget img {
+  object-fit: cover;
+  width: 5vw;
+  height: 5vw;
+}
+
 .recent {
   margin: 0;
   position: absolute;
