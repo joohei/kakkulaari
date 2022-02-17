@@ -6,7 +6,6 @@ async function getMedia(dataUrl) {
   let response = await fetch(dataUrl);
   let data = await response.json();
   for (let i = 0; i < 4; i++) {
-    let br = document.createElement("br");
     let img = document.createElement("img");
     let imgUrl = data.data[i].media_url
     img.src = imgUrl;
@@ -16,14 +15,12 @@ async function getMedia(dataUrl) {
     date = `${date[2]}.${date[1]}.${date[0]}`;
     date = document.createTextNode("Julkaistu: " + date);
     let caption = document.createTextNode(data.data[i].caption);
-    let recent = document.getElementsByClassName("recent")[0];
     let container = document.createElement("div");
-    recent.appendChild(br)
-    recent.appendChild(container)
+    let recent = document.getElementsByClassName("recent")[0];
     container.appendChild(date);
     container.appendChild(img);
-    recent.appendChild(caption);
-    recent.appendChild(br)
+    container.appendChild(caption);
+    recent.appendChild(container)
   }
 }
 
