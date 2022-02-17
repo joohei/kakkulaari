@@ -138,6 +138,10 @@ nav ul .active {
   text-decoration: none;
 }
 
+.ig-widget a:visited {
+  color: inherit;
+}
+
 .recent {
   margin: 0;
   position: absolute;
