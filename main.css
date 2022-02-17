@@ -133,6 +133,10 @@ nav ul .active {
   margin: 0;
 }
 
+.recent container {
+  margin-top: 0.5vw;
+}
+
 .recent container > * {
   margin-top: 0.5vw;
 }
