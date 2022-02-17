@@ -118,6 +118,14 @@ nav ul .active {
   height: 35vw;
 }
 
+.ig-widget {
+  margin: 0;
+  position: absolute;
+  right: 2.5%;
+  top: 15%;
+  display: inline-block;
+}
+
 .recent {
   margin: 0;
   position: absolute;
