@@ -68,6 +68,7 @@ nav ul .active {
   margin-top: 12vh;
   margin-left: 3%;
   margin-right: 3%;
+  font-size: 2vh;
 }
 
 .content.front-page {
@@ -126,6 +127,7 @@ nav ul .active {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 2vh;
 }
 
 .ig-widget img {
@@ -151,9 +153,6 @@ nav ul .active {
   grid-template-rows: .1fr 1fr;
   grid-row-gap: 0.5vw;
   width: 20vw;
-}
-
-.recent #font {
   font-size: 2vh;
 }
 
