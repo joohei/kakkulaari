@@ -105,6 +105,12 @@ nav ul .active {
   grid-row-gap: 0.5vw;
 }
 
+.front-page-img.bin img {
+  object-fit: cover;
+  width: 50vw;
+  height: 30vw;
+}
+
 .recent {
   margin: 0;
   position: absolute;
