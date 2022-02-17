@@ -95,11 +95,6 @@ nav ul .active {
 
 .front-page-img {
   margin: 0;
-  display: inline-block;
-}
-
-.front-page-img.bin {
-  margin: 0;
   display: grid;
   grid-template-rows: 1fr .1fr;
   grid-row-gap: 0.5vw;
@@ -108,6 +103,12 @@ nav ul .active {
 .front-page-img.bin img {
   object-fit: cover;
   width: 40vw;
+  height: 30vw;
+}
+
+.front-page-img.cat img {
+  object-fit: cover;
+  width: 22.5vw;
   height: 30vw;
 }
 
