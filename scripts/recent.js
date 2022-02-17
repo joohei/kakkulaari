@@ -10,10 +10,9 @@ async function getMedia(dataUrl) {
   img.src = imgUrl;
   img.alt = data.data[0].caption;
   let date = data.data[0].timestamp.substring(0, 10);
-  console.log(date);
-  date = date.split('-')
-  date = `${date[2]}/${date[1]}/${date[0]}`;
-  date = document.createTextNode(date);
+  date = date.split('-');
+  date = `${date[2]}.${date[1]}.${date[0]}`;
+  date = document.createTextNode("Julkaistu: " + date);
   let recent = document.getElementsByClassName("recent")[0];
   recent.appendChild(img);
   recent.appendChild(date);
