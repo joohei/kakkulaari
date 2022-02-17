@@ -6,10 +6,13 @@ async function getMedia(dataUrl) {
   let response = await fetch(dataUrl);
   let data = await response.json();
   let img = document.createElement("img");
-  let date = document.createTextNode(data.data[0].timestamp)
   let imgUrl = data.data[0].media_url
   img.src = imgUrl;
   img.alt = data.data[0].caption;
+  let date = data.data[0].timestamps.slice(0, 10);
+  date = date.split('-')
+  date = `${date[2]}/${date[1]}/${date[0]}`;
+  date = document.createTextNode(date);
   let recent = document.getElementsByClassName("recent")[0];
   recent.appendChild(img);
   recent.appendChild(date);
