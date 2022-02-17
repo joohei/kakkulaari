@@ -134,7 +134,7 @@ nav ul .active {
 }
 
 .recent container > * {
-  margin: 0.5vw 0;
+  margin-top: 0.5vw;
 }
 
 .recent div {
