@@ -93,8 +93,16 @@ nav ul .active {
   width: calc(3 * 30vw + 2 * 2%);
 }
 
-.text {
+.front-page-img {
   margin: 0;
+  display: inline-block;
+}
+
+.front-page-img.bin {
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr .1fr;
+  grid-row-gap: 0.5vw;
 }
 
 .recent {
@@ -106,6 +114,10 @@ nav ul .active {
   grid-template-rows: .1fr 1fr;
   grid-row-gap: 0.5vw;
   width: 20vw;
+}
+
+.text {
+  margin: 0;
 }
 
 .recent div {
