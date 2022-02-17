@@ -97,7 +97,7 @@ nav ul .active {
   margin: 0;
   position: absolute;
   right: 2.5%;
-  top: 12%;
+  top: 12.5%;
   display: grid;
   grid-template-rows: .1fr 1fr;
   grid-row-gap: 0.5vw;
