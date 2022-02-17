@@ -123,13 +123,19 @@ nav ul .active {
   position: absolute;
   right: 2.5%;
   top: 10%;
-  display: inline;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ig-widget img {
   object-fit: cover;
   width: 2vw;
   height: 2vw;
+}
+
+.ig-widget a {
+  text-decoration: none;
 }
 
 .recent {
