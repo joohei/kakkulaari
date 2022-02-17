@@ -131,6 +131,9 @@ nav ul .active {
 
 .text {
   margin: 0;
+  padding-bottom: 0.5vw;
+  display: flex;
+  bottom: 0;
 }
 
 .recent container {
