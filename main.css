@@ -108,14 +108,14 @@ nav ul .active {
 
 .bin img {
   object-fit: cover;
-  width: 40vw;
-  height: 30vw;
+  width: 50vw;
+  height: 35vw;
 }
 
 .cat img {
   object-fit: cover;
-  width: 20vw;
-  height: 30vw;
+  width: 25vw;
+  height: 35vw;
 }
 
 .recent {
