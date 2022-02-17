@@ -153,6 +153,10 @@ nav ul .active {
   width: 20vw;
 }
 
+.recent #text {
+  font-size: 2vh;
+}
+
 .text {
   margin: 0;
   padding-bottom: 0.5vw;
