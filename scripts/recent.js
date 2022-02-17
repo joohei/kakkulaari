@@ -9,9 +9,8 @@ async function getMedia(dataUrl) {
   let imgUrl = data.data[0].media_url
   img.src = imgUrl;
   img.alt = data.data[0].caption;
-  let date = data.data[0].timestamps;
+  let date = data.data[0].timestamp.substring(0, 10);
   console.log(date);
-  date = date.substring(0, 10)
   date = date.split('-')
   date = `${date[2]}/${date[1]}/${date[0]}`;
   date = document.createTextNode(date);
