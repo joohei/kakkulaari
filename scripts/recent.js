@@ -18,11 +18,8 @@ async function getMedia(dataUrl) {
     let caption = document.createTextNode(data.data[i].caption);
     let recent = document.getElementsByClassName("recent")[0];
     recent.appendChild(br)
-    recent.appendChild(br)
     recent.appendChild(date);
-    recent.appendChild(br);
     recent.appendChild(img);
-    recent.appendChild(br);
     recent.appendChild(caption);
     recent.appendChild(br)
   }
