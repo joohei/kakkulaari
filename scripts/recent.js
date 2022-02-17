@@ -3,9 +3,9 @@ const accessToken = "IGQVJWWnRyVXhkNlVWckk2Rkd2dThNeW5VQUhNZAGhLNTFEcWl1c0JCMFBS
 let dataUrl = `https://graph.instagram.com/me/media?fields=media_url,caption, timestamp&access_token=${accessToken}`;
 
 async function getMedia(dataUrl) {
+  let response = await fetch(dataUrl);
+  let data = await response.json();
   for (let i = 0; i < 3; i++) {
-    let response = await fetch(dataUrl);
-    let data = await response.json();
     let img = document.createElement("img");
     let imgUrl = data.data[i].media_url
     img.src = imgUrl;
