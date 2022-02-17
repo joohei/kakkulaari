@@ -5,8 +5,8 @@ let dataUrl = `https://graph.instagram.com/me/media?fields=media_url,caption, ti
 async function getMedia(dataUrl) {
   let response = await fetch(dataUrl);
   let data = await response.json();
+  const break = document.createElement('br')
   for (let i = 0; i < 4; i++) {
-    const break = document.createElement('br')
     let img = document.createElement("img");
     let imgUrl = data.data[i].media_url
     img.src = imgUrl;
@@ -17,12 +17,12 @@ async function getMedia(dataUrl) {
     date = document.createTextNode("Julkaistu: " + date);
     let caption = document.createTextNode(data.data[i].caption);
     let recent = document.getElementsByClassName("recent")[0];
-    recent.append(break)
+    recent.appendChild(break)
     recent.appendChild(date);
     recent.appendChild(img);
     recent.appendChild(break);
     recent.appendChild(caption);
-    recent.append(break)
+    recent.appendChild(break)
   }
 }
 
