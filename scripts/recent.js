@@ -10,6 +10,7 @@ async function getMedia(dataUrl) {
   img.src = imgUrl;
   img.alt = data.data[0].caption;
   let date = data.data[0].timestamps;
+  console.log(date);
   date = date.substring(0, 10)
   date = date.split('-')
   date = `${date[2]}/${date[1]}/${date[0]}`;
