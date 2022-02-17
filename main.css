@@ -91,7 +91,7 @@ nav ul .active {
 }
 
 .line.long {
-  width: calc(3 * 30vw + 2 * 2%);
+  width: calc(3 * 30vw + 2 * 2vw);
 }
 
 .front-page-img {
@@ -192,7 +192,7 @@ nav ul .active {
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 2vw;
   grid-row-gap: 2vw;
-  width: calc(3 * 30vw + 2 * 2%);
+  width: calc(3 * 30vw + 2 * 2vw);
 }
 
 .gallery img {
