@@ -139,7 +139,7 @@ nav ul .active {
 }
 
 .ig-widget a:visited {
-  color: inherit;
+  color: -webkit-link;
 }
 
 .recent {
