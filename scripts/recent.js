@@ -15,8 +15,8 @@ async function getMedia(dataUrl) {
   date = document.createTextNode("Julkaistu: " + date);
   let caption = document.createTextNode(data.data[0].caption);
   let recent = document.getElementsByClassName("recent")[0];
-  recent.appendChild(img);
   recent.appendChild(date);
+  recent.appendChild(img);
   recent.appendChild(caption);
 }
 
