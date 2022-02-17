@@ -5,8 +5,8 @@ let dataUrl = `https://graph.instagram.com/me/media?fields=media_url,caption, ti
 async function getMedia(dataUrl) {
   let response = await fetch(dataUrl);
   let data = await response.json();
-  const break = document.createElement('br')
   for (let i = 0; i < 4; i++) {
+    const break = document.createElement('br')
     let img = document.createElement("img");
     let imgUrl = data.data[i].media_url
     img.src = imgUrl;
