@@ -68,7 +68,10 @@ nav ul .active {
   margin-top: 6%;
   margin-left: 3%;
   margin-right: 3%;
-  width: 74vw;
+}
+
+.content.front-page {
+  width: 70vw;
 }
 
 .headline {
