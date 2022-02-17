@@ -13,7 +13,7 @@ async function getMedia(dataUrl) {
     let date = data.data[i].timestamp.substring(0, 10);
     date = date.split('-');
     date = `${date[2]}.${date[1]}.${date[0]}`;
-    date = document.createTextNode("\nJulkaistu: " + date);
+    date = document.createTextNode("Julkaistu: " + date);
     let caption = document.createTextNode(data.data[i].caption);
     let recent = document.getElementsByClassName("recent")[0];
     recent.appendChild(date);
