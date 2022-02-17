@@ -133,6 +133,10 @@ nav ul .active {
   margin: 0;
 }
 
+.recent container > * {
+  margin: 0.5vw 0;
+}
+
 .recent div {
   padding-bottom: 0.5vw;
   border-bottom: 1px solid black;
