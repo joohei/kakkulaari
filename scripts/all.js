@@ -22,9 +22,10 @@ async function getMedia(dataUrl) {
       sweetImg.splice(sweetImg.indexOf(imgId), 1);
       img.src = imgUrl;
       img.alt = data.data[i].caption;
-      dataClass = document.createAttribute("dataclass")
-      dataClass.value = "sweet"
-      img.setAttributeNode(dataClass)
+      dataClass = document.createAttribute("dataclass");
+      dataClass.value = "sweet";
+      img.setAttributeNode(dataClass);
+      img.classList.add("animate");
       let gallery = document.getElementsByClassName("gallery")[0];
       gallery.appendChild(img);
     }
@@ -32,21 +33,22 @@ async function getMedia(dataUrl) {
       saltyImg.splice(saltyImg.indexOf(imgId), 1);
       img.src = imgUrl;
       img.alt = data.data[i].caption;
-      dataClass = document.createAttribute("dataclass")
-      dataClass.value = "salty"
-      img.setAttributeNode(dataClass)
+      dataClass = document.createAttribute("dataclass");
+      dataClass.value = "salty";
+      img.setAttributeNode(dataClass);
+      img.classList.add("animate");
       let gallery = document.getElementsByClassName("gallery")[0];
       gallery.appendChild(img);
     }
   }
   dataUrl = data.paging.next;
   if (sweetImg.length > 0 || saltyImg.lenght > 0) {
-    await sleep(5000)
+    await sleep(5000);
     getMedia(dataUrl);
   }
   else {
-    loader.classList.add("loaded")
-    loaderContainer.classList.add("loaded")
+    loader.classList.add("loaded");
+    loaderContainer.classList.add("loaded");
   }}
 
 getMedia(dataUrl);
