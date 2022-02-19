@@ -48,7 +48,6 @@ async function getMedia(dataUrl) {
   }
   else {
     loader.classList.add("loaded");
-    loaderContainer.classList.add("loaded");
   }}
 
 getMedia(dataUrl);

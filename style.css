@@ -47,6 +47,7 @@ h1 {
   z-index: 1;
 
   user-select: none;
+  -webkit-user-select: none;
 
   appearance: none;
   border: none;
@@ -307,7 +308,7 @@ body.is-active {
   display: flex;
   justify-content: space-between;
   max-width: 400px;
-  width: 100%;
+  width: 90%;
 }
 
 .filter-wrapper .filters .item {
