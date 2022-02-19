@@ -12,7 +12,6 @@
   font-family: sans-serif;
 }
 
-
 .container {
   margin: 0 auto;
   display: flex;
@@ -326,6 +325,10 @@ body.is-active {
 .filter-wrapper .filters .item.is-active, .filter-wrapper .filters .item:hover {
   color: var(--light);
   background-color: var(--primary);
+}
+
+.content.about {
+  margin: 0;
 }
 
 .story {
