@@ -6,8 +6,12 @@ let sweetImg = ["103658080_148889320053281_5658960216754624125_n.jpg", "10750711
 
 let saltyImg = ["107275296_1389121354615572_6869990983325170658_n.jpg", "115927570_276949840275298_8646469938486224357_n.jpg", "116731281_325382118842950_5152981979453377256_n.jpg", "117872233_598207020868781_1233606582241572403_n.jpg", "126228413_864603707643598_9181937428391697747_n.jpg", "130269816_396711381777956_6926006644308192171_n.jpg", "133647040_421632572586882_4789232797105868796_n.jpg", "271463876_5357319117615488_2950246290657109200_n.jpg", "83183011_2076921122454759_7575858734005177615_n.jpg", "83348742_107521060705984_8789294739045836415_n.jpg", "83410271_187660325783692_6214203334089461214_n.jpg", "83428076_193789708674127_599513956079108274_n.jpg", "83565605_867430100352534_8718255499464167986_n.jpg", "83585368_554277325170264_5639365913955321006_n.jpg", "83619387_186142006066143_8019901803757529445_n.jpg", "83643775_825548911203808_4566851124216566439_n.jpg", "83710707_196135241741045_1687748462042905800_n.jpg", "83897707_2709191419134751_7059041928050824569_n.jpg", "83920857_189334568838536_7991823288232501249_n.jpg", "84342926_666752847477391_6682817437905890719_n.jpg", "84527673_590214378489820_4624486746396645642_n.jpg", "89328473_571839727009009_3404747214634833520_n.jpg", "94102809_257694942032504_5808250113414886105_n.jpg", "96695046_2889566201097179_7954666066826929925_n.jpg"];
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function getMedia(dataUrl) {
-  console.log("a");
+  const loader = document.querySelector(".loader-container")
   let response = await fetch(dataUrl);
   let data = await response.json();
   for (let i in data.data) {
@@ -18,6 +22,9 @@ async function getMedia(dataUrl) {
       sweetImg.splice(sweetImg.indexOf(imgId), 1);
       img.src = imgUrl;
       img.alt = data.data[i].caption;
+      dataClass = document.createAttribute("dataclass")
+      dataClass.value = "sweet"
+      img.setAttributeNode(dataClass)
       let gallery = document.getElementsByClassName("gallery")[0];
       gallery.appendChild(img);
     }
@@ -25,12 +32,21 @@ async function getMedia(dataUrl) {
       saltyImg.splice(saltyImg.indexOf(imgId), 1);
       img.src = imgUrl;
       img.alt = data.data[i].caption;
+      dataClass = document.createAttribute("dataclass")
+      dataClass.value = "salty"
+      img.setAttributeNode(dataClass)
       let gallery = document.getElementsByClassName("gallery")[0];
       gallery.appendChild(img);
     }
   }
   dataUrl = data.paging.next;
   if (sweetImg.length > 0 || saltyImg.lenght > 0) {
+    await sleep(5000)
     getMedia(dataUrl);
+  }
+  else {
+    loader.classList.add("loaded")
+    loaderContainer.classList.add("loaded")
   }}
+
 getMedia(dataUrl);

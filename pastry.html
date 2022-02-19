@@ -30,14 +30,24 @@
   </nav>
 
   <nav class="mobile-nav">
-    <a href="index.html">etusivu</a>
-    <a class="is-active">leivonta</a>
-    <a href="about.html">minusta</a>
+    <a href="index.html">Etusivu</a>
+    <a class="is-active">Leivonta</a>
+    <a href="about.html">Minusta</a>
   </nav>
 
   <div class="content pastry">
+    <div class="filter-wrapper">
+      <div class="filters">
+        <span class="item is-active"dataClass="all">Kaikki</span>
+        <span class="item" dataClass="sweet">Makeat</span>
+        <span class="item" dataClass="salty">Suolaiset</span>
+      </div>
+    </div>
     <div class="gallery">
       <script src="scripts/all.js"></script>
+      <div class="loader-container">
+        <div class="loader"></div>
+      </div>
     </div>
   </div>
 
@@ -46,5 +56,6 @@
   </footer>
 
   <script src="scripts/hamburger.js"></script>
+  <script src="scripts/filter.js"></script>
 </body>
 </html>
