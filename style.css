@@ -247,6 +247,28 @@ footer {
   border-top: 3px solid var(--primary);
 }
 
+.content.pastry {
+  margin: 10px auto;
+  width: 100%;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.gallery img {
+  object-fit: cover;
+  width: 40vw;
+  height: 40vw;
+}
+
+
+
 @media (min-width: 768px) {
   .hamburger {
     display: none;
