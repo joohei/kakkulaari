@@ -179,7 +179,7 @@ body.is-active {
 }
 
 .img-info h4, .img-content h4 {
-  padding: 30px 30px 20px;
+  padding: 0 30px 20px;
   font-size: 20px;
   color: var(--font);
   line-height: 44px;
