@@ -26,7 +26,7 @@ async function getMedia(dataUrl, count) {
     var filter = filterItem.getAttribute("dataclass")
   }
   else {
-    var filter = searchInput
+    var filter = searchInput.toLowerCase()
   }
   let response = await fetch(dataUrl);
   let data = await response.json();
