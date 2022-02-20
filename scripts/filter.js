@@ -1,5 +1,5 @@
 const filterItem = document.querySelector(".filters");
-const filterImg = document.getElementsByTagName("img")
+const filterImg = document.getElementsByTagName("img");
 
 window.onload = function () {
   filterItem.onclick = function (selectedItem) {

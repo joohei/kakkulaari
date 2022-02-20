@@ -19,10 +19,15 @@ async function getCount(profileUrl) {
 }
 
 async function getMedia(dataUrl, count) {
-  console.log("a")
   const loader = document.querySelector(".loader-container");
   let filterItem = document.querySelector(".item.is-active")
-  let filter = filterItem.getAttribute("dataclass")
+  let searchInput = document.getElementById("search").value;
+  if (searchInput == "") {
+    var filter = filterItem.getAttribute("dataclass")
+  }
+  else {
+    var filter = searchInput
+  }
   let response = await fetch(dataUrl);
   let data = await response.json();
   for (let i in data.data) {
@@ -31,12 +36,11 @@ async function getMedia(dataUrl, count) {
     let imgId = imgUrl.split("?").join("/").split("/")[5];
     let caption = data.data[i].caption
     if (sweetImg.includes(imgId)) {
-      sweetImg.splice(sweetImg.indexOf(imgId), 1);
       img.src = imgUrl;
       img.alt = "Instagram API photo";
       hashtags = caption.split("#").slice(1)
       tags = document.createAttribute("tags");
-      tags.value = hashtags.join("").split(" ")
+      tags.value = hashtags.join("").split(/  | \n| /)
       img.setAttributeNode(tags)
       dataClass = document.createAttribute("dataclass");
       dataClass.value = "sweet";
@@ -46,19 +50,29 @@ async function getMedia(dataUrl, count) {
         img.classList.add("show")
       }
       else {
-        img.classList.add("hide")
+        let tags = img.getAttribute("tags").split(",")
+        for (let tag of tags) {
+          if (tag.includes(filter)) {
+            img.classList.add("show");
+            img.classList.remove("hide");
+            break;
+          }
+          else {
+            img.classList.add("hide");
+            img.classList.remove("show");
+          }
+        }
       }
       let gallery = document.getElementsByClassName("gallery")[0];
       gallery.appendChild(img);
     }
     else if ((saltyImg.includes(imgId))) {
-      saltyImg.splice(saltyImg.indexOf(imgId), 1);
       img.src = imgUrl;
       img.alt = "Instagram API photo";
       hashtags = caption.split("#").slice(1)
       tags = document.createAttribute("tags");
-      tags.value = hashtags.join(",")
-      img.setAttributeNode(tags)
+      tags.value = hashtags.join("").split(/  | \n| /);
+      img.setAttributeNode(tags);
       dataClass = document.createAttribute("dataclass");
       dataClass.value = "salty";
       img.setAttributeNode(dataClass);
@@ -67,7 +81,18 @@ async function getMedia(dataUrl, count) {
         img.classList.add("show")
       }
       else {
-        img.classList.add("hide")
+        let tags = img.getAttribute("tags").split(",")
+        for (let tag of tags) {
+          if (tag.includes(filter)) {
+            img.classList.add("show");
+            img.classList.remove("hide");
+            break;
+          }
+          else {
+            img.classList.add("hide");
+            img.classList.remove("show");
+          }
+        }
       }
       let gallery = document.getElementsByClassName("gallery")[0];
       gallery.appendChild(img);
