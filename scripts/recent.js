@@ -5,7 +5,7 @@ let dataUrl = `https://graph.instagram.com/me/media?fields=media_url,caption, ti
 async function getMedia(dataUrl) {
   let response = await fetch(dataUrl);
   let data = await response.json();
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 5; i++) {
     let header = document.createElement("h5")
     let date = data.data[i].timestamp.substring(0, 10);
     date = date.split('-');
