@@ -418,7 +418,7 @@ footer {
   border-top: 3px solid var(--primary);
 }
 
-fb:login-button {
+.fb_iframe_widget {
   margin-top: 150px;
 }
 
