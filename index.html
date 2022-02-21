@@ -8,7 +8,9 @@
   <title>Kakkulaari</title>
 </head>
 <body>
+  <div id="status"></div>
   <script>
+
     window.fbAsyncInit = function() {
       FB.init({
         appId      : '696009388198065',
@@ -16,12 +18,9 @@
         xfbml      : true,
         version    : 'v13.0'
       });
-
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
       FB.AppEvents.logPageView();
-
+      FB.getLoginStatus(function(response) {
+        console.log(response);
     };
 
     (function(d, s, id){
@@ -31,6 +30,7 @@
        js.src = "https://connect.facebook.net/en_US/sdk.js";
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
+
   </script>
 
   <nav>
