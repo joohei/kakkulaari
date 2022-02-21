@@ -1,10 +1,6 @@
-const accessToken = "IGQVJWWnRyVXhkNlVWckk2Rkd2dThNeW5VQUhNZAGhLNTFEcWl1c0JCMFBSRTk3X0FVSDY4RFljZAjRZAVnRrYU5aV2pEV2lIblZA4RWlxQUg3enZAWS2JOYXcxZAmRZAbmFSdjVENktXaldaSHRHSGhLYkh4VAZDZD";
-
-const dataUrl = `https://graph.instagram.com/me/media?fields=media_url,caption, timestamp&access_token=${accessToken}`;
-
 const howMany = 5
 
-async function getMedia(dataUrl) {
+async function getMedia() {
   let data = await fetch('API.json')
     .then(function (response) {
       return response.json();
@@ -30,4 +26,4 @@ async function getMedia(dataUrl) {
   }
 }
 
-getMedia(dataUrl);
+getMedia();
