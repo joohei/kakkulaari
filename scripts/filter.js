@@ -15,4 +15,8 @@ window.onload = function () {
         else {
           image.classList.add("hide")
           image.classList.remove("show")
-        }}}}}
+        }
+      }
+    }
+  }
+}

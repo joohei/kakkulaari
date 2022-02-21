@@ -158,6 +158,16 @@ body.is-active {
   width: 100%;
 }
 
+.welcome {
+  margin: 0 auto;
+  padding-top: 30px;
+  font-family: "cookie";
+  font-size: 32px;
+  width: 80%;
+  text-align: center;
+  color: var(--font);
+}
+
 .intro h2, .wrapper.ig h2 {
   margin: 0 auto;
   padding-top: 30px;
@@ -477,7 +487,7 @@ footer {
   .content.front-page {
     display: flex;
     width: 100%;
-    padding: 50px 0 50px 30px;
+    padding: 90px 0 50px 30px;
   }
 
   .wrapper {
@@ -494,6 +504,12 @@ footer {
     width: 70%;
     height: auto;
     justify-content: left;
+  }
+
+  .welcome {
+    position: absolute;
+    top: 50px;
+    width: 60%;
   }
 
   .intro h2, .wrapper.ig h2 {

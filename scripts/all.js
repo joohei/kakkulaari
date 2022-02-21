@@ -106,7 +106,8 @@ async function getMedia(dataUrl, count) {
   }
   else {
     loader.classList.add("loaded");
-  }}
+  }
+}
 
 getCount(profileUrl).then(count => {
   getMedia(dataUrl, count);
