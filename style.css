@@ -280,31 +280,9 @@ body.is-active {
   justify-content: center;
 }
 
-.loader-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40vw;
-  height: 40vw;
-  order: 999;
-}
-
-.loader {
-  border: 16px solid var(--light);
-  border-top: 16px solid var(--primary);
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-}
-
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-
-.loader-container.loaded {
-  display: none;
 }
 
 .gallery img {
@@ -416,10 +394,6 @@ footer {
   background: var(--dark);
   color: var(--primary);
   border-top: 3px solid var(--primary);
-}
-
-.fb_iframe_widget {
-  margin-top: 150px;
 }
 
 @media (min-width: 768px) {
@@ -591,7 +565,7 @@ footer {
     max-width: 720px;
   }
 
-  .gallery img, .loader-container {
+  .gallery img {
     width: 30vw;
     height: 30vw;
   }
