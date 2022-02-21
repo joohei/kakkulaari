@@ -418,6 +418,10 @@ footer {
   border-top: 3px solid var(--primary);
 }
 
+fb:login-button {
+  margin-top: 150px;
+}
+
 @media (min-width: 768px) {
   .hamburger {
     display: none;
