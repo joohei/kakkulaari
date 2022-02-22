@@ -25,7 +25,6 @@ nav {
   left: 0;
   right: 0;
   z-index: 1000;
-
   background: var(--dark);
   padding: 8px 32px 8px 16px;
   border-bottom: 3px solid var(--primary);
@@ -45,10 +44,8 @@ h1 {
   display: block;
   position: relative;
   z-index: 1;
-
   user-select: none;
   -webkit-user-select: none;
-
   appearance: none;
   border: none;
   outline: none;
@@ -63,17 +60,14 @@ h1 {
   margin-bottom: 5px;
   position: relative;
   z-index: 1;
-
   background: var(--light);
   border-radius: 6px;
-
   transform-origin: 0 0;
   transition: 0.4s;
 }
 
 .hamburger:hover span:nth-child(2) {
   transform: translateX(10px);
-
   background: var(--primary);
 }
 
@@ -145,7 +139,6 @@ body.is-active {
   text-align: center;
   padding: 12px 16px;
   background: var(--primary);
-
   color: #FFF;
   text-decoration: none;
 }
@@ -153,6 +146,7 @@ body.is-active {
 .mobile-nav a:hover {
   background: var(--light);
 }
+
 .content {
   padding-top: 63px;
   width: 100%;
@@ -288,8 +282,13 @@ body.is-active {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .gallery img {
@@ -436,7 +435,7 @@ footer {
     margin-bottom: 30px;
   }
 
-  .img-info h4, .ig-widget{
+  .img-info h4, .ig-widget {
     padding: 20px 0 0;
   }
 
