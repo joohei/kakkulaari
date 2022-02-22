@@ -12,13 +12,12 @@ async function getMedia() { // a function that fetches image links from API.json
 
   if (searchInput == "") { // checks whether the search input is empty
     var filter = filterItem.getAttribute("dataclass") // if so use the default filter
-  }
-  else {
+  } else {
     var filter = searchInput.toLowerCase() // otherwise use the search bar value
   }
 
   let data = await fetch('API.json') // fetching data from API.json
-    .then(function (response) {
+    .then(function(response) {
       return response.json();
     })
 
@@ -36,8 +35,7 @@ async function getMedia() { // a function that fetches image links from API.json
     tags.value = hashtags; // giving the tags attribute the value of "hashtags"
     if (hashtags.includes("sweetpastry")) { // checking whether image belongs to sweet...
       dataClass.value = "sweet";
-    }
-    else if (hashtags.includes("saltypastry")) { // ...or salty pastries
+    } else if (hashtags.includes("saltypastry")) { // ...or salty pastries
       dataClass.value = "salty"; // and assgning the value
     }
 
@@ -50,16 +48,14 @@ async function getMedia() { // a function that fetches image links from API.json
 
     if (filter == dataClass.value || filter == "all") { // if current filter matches images group, show image
       img.classList.add("show")
-    }
-    else { // otherwise check if...
+    } else { // otherwise check if...
       let tags = img.getAttribute("tags").split(",") // ...formatted tags...
       for (let tag of tags) {
         if (tag.includes(filter)) { // ...include the filter
           img.classList.add("show"); // and if so then show the image
           img.classList.remove("hide");
           break; // and break out of loop
-        }
-        else { // if it doesn't exist
+        } else { // if it doesn't exist
           img.classList.add("hide"); // hide the image
           img.classList.remove("show");
         }
