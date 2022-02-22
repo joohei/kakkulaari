@@ -20,14 +20,15 @@ async function getMedia() {
     img.src = imgUrl;
     img.alt = "Instagram API photo";
     hashtags = caption.split("#").slice(1);
+    hashtags = hashtags.join("").split(/  | \n| /);
     tags = document.createAttribute("tags");
-    tags.value = hashtags.join("").split(/  | \n| /)
-    img.setAttributeNode(tags)
+    tags.value = hashtags;
+    img.setAttributeNode(tags);
     dataClass = document.createAttribute("dataclass");
-    if (hashtags.join("").split(/  | \n| /).includes("sweetpastry")) {
+    if (hashtags.includes("sweetpastry")) {
       dataClass.value = "sweet";
     }
-    else if (hashtags.join("").split(/  | \n| /).includes("saltypastry")) {
+    else if (hashtags.includes("saltypastry")) {
       dataClass.value = "salty";
     }
     img.setAttributeNode(dataClass);
