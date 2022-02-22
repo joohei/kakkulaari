@@ -204,6 +204,13 @@ body.is-active {
 .img-info p {
   padding: 0 30px 20px;
   font-size: 16px;
+  font-family: sans-serif;
+  color: var(--font);
+  line-height: 24px;
+}
+
+.img-info .quote {
+  font-size: 16px;
   font-family: monospace;
   color: var(--font);
   line-height: 24px;
