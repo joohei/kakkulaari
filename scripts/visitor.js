@@ -7,3 +7,5 @@ async function newVisitor(hitUrl, visitorCounter) {
   let visitorNumber = data.value
   console.log(visitorNumber)
 }
+
+newVisitor(hitUrl, visitorCounter)
