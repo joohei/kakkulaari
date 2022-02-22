@@ -4,12 +4,6 @@ async function getMedia() { // a function that fetches image links from API.json
   let filterItem = document.querySelector(".item.is-active"); // defining the currently active filter
   let searchInput = document.getElementById("search").value; // defining search bar value
 
-  // creating elements and attributes
-  let img = document.createElement("img"); // creating image element
-  let tags = document.createAttribute("tags"); // creating attribute for image elements
-  let gallery = document.getElementsByClassName("gallery")[0]; // getting parent item
-  dataClass = document.createAttribute("dataclass"); // creating attribute for image elements
-
   if (searchInput == "") { // checks whether the search input is empty
     var filter = filterItem.getAttribute("dataclass") // if so use the default filter
   } else {
@@ -22,6 +16,12 @@ async function getMedia() { // a function that fetches image links from API.json
     })
 
   for (let i in data.data) { // looping over the array of data, creating image elements and sorting them
+
+    // creating elements and attributes
+    let img = document.createElement("img"); // creating image element
+    let tags = document.createAttribute("tags"); // creating attribute for image elements
+    let gallery = document.getElementsByClassName("gallery")[0]; // getting parent item
+    dataClass = document.createAttribute("dataclass"); // creating attribute for image elements
 
     // defining basic info
     let imgUrl = data.data[i].media_url; // defining image url
