@@ -343,7 +343,7 @@ body.is-active {
   background: var(--light);
   border-radius: 10px;
   width: 1000px;
-  max-width: 80%;
+  max-width: 90%;
   max-height: 80%;
   overflow-y: auto;
 }
