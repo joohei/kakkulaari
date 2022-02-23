@@ -1,3 +1,49 @@
+function createModals(caption, id) { // a function that creates modals (description popups) for each image
+
+  // creating elements and defining existing ones
+  let body = document.body // defining body
+  let modalContainer = document.createElement("div"); // creating the container that contains bot the modal and the overlay
+  let modal = document.createElement("div"); // creating the modal
+  let modalHeader = document.createElement("div"); // container for header elements
+  let modalHeadline = document.createElement("h1"); // modal headline
+  let closeBtn = document.createElement("button"); // button for closing the modal
+  let modalContent = document.createElement("div"); // container for modal text
+  let modalDesc = document.createElement("p"); // modal text
+
+  // adding necessary attributes to each modal piece
+  modalContainer.classList.add("modal-container"); // class for CSS
+  modalContainer.setAttribute("id", id); // id for identifying which image it's connected to
+  modal.classList.add("modal"); // class for CSS
+  modalHeader.classList.add("modal-header"); // class for CSS
+  modalHeadline.classList.add("modal-title"); // class for CSS
+  modalHeadline.textContent = "kuvaus"; // modal headline
+  closeBtn.classList.add("close-btn"); // class for CSS
+  closeBtn.innerHTML = "&times;"; // button x symbol
+  closeBtn.setAttribute("onclick", `closeModal("${id}")`) // adding functionality to close button
+  modalContent.classList.add("modal-content"); // class for CSS
+  modalDesc.classList.add("modal-text"); // class for CSS
+  modalDesc.textContent = caption; // modal text
+
+  // appending everything together and lastly to the parent element
+  modalHeader.appendChild(modalHeadline);
+  modalHeader.appendChild(closeBtn);
+  modalContent.appendChild(modalDesc);
+  modal.appendChild(modalHeader);
+  modal.appendChild(modalContent);
+  modalContainer.appendChild(modal)
+  body.appendChild(modalContainer);
+}
+
+function openModal(modalId) { // a function that adds open class to modal so it shows
+  let modal = document.getElementById(modalId); // deifing modal
+  modal.classList.add("active"); // adding class
+}
+
+function closeModal(modalId) { // a function that removes open class from modal so it hides
+  let modal = document.getElementById(modalId); // defining modal
+  modal.classList.remove("active"); // removing class
+}
+
 async function getMedia() { // a function that fetches image links from API.json and appends to parent
 
   // defining filter parameters
@@ -15,19 +61,24 @@ async function getMedia() { // a function that fetches image links from API.json
       return response.json();
     })
 
+  const gallery = document.getElementsByClassName("gallery")[0]; // getting parent item
+
   for (let i in data.data) { // looping over the array of data, creating image elements and sorting them
 
     // creating elements and attributes
     let img = document.createElement("img"); // creating image element
     let tags = document.createAttribute("tags"); // creating attribute for image elements
-    let gallery = document.getElementsByClassName("gallery")[0]; // getting parent item
     dataClass = document.createAttribute("dataclass"); // creating attribute for image elements
 
     // defining basic info
     let imgUrl = data.data[i].media_url; // defining image url
     let caption = data.data[i].caption; // defining image caption
+    let imgId = data.data[i].id.toString(); // defining image id
+
     img.src = imgUrl; // assigning the url to image element
     img.alt = "Instagram API photo"; // setting alternative text
+    img.setAttribute("img-id", imgId); // setting image id
+    img.setAttribute("onclick", `openModal("${imgId}")`)
 
     // formatting hastags and sorting image based on it
     hashtags = caption.split("#").slice(1); // formatting caption to extract only hashtags
@@ -62,6 +113,7 @@ async function getMedia() { // a function that fetches image links from API.json
       }
     }
     gallery.appendChild(img); // lastly appending image to parent item
+    createModals(caption, imgId) // and creating modal for the image (description popup)
   }
 }
 
