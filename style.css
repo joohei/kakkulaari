@@ -308,21 +308,20 @@ body.is-active {
 }
 
 .modal-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
   background: rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
-  opacity: 0;
-  transition: opacity 300ms ease-in-out;
   pointer-events: none;
 }
 
 .modal-container.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   pointer-events: auto;
   opacity: 1;
 }
