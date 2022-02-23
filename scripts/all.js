@@ -9,6 +9,8 @@ function createModals(caption, date, id) { // a function that creates modals (de
   let closeBtn = document.createElement("button"); // button for closing the modal
   let modalContent = document.createElement("div"); // container for modal text
   let modalDesc = document.createElement("p"); // modal text
+  let newLine = document.createElement("br"); // newline \n
+  let modalTags = document.createElement("p"); // modal hashtags
   let modalDate = document.createElement("h5"); // release date of image
 
   // adding necessary attributes and text to each modal piece
@@ -23,7 +25,9 @@ function createModals(caption, date, id) { // a function that creates modals (de
   closeBtn.setAttribute("onclick", `closeModal("${id}")`) // adding functionality to close button
   modalContent.classList.add("modal-content"); // class for CSS
   modalDesc.classList.add("modal-text"); // class for CSS
-  modalDesc.textContent = caption; // modal text
+  modalDesc.textContent = caption.split("#")[0]; // modal text (splitting from hashtags)
+  modalTags.classList.add("modal-text"); // class for CSS
+  modalTags.textContent = "#" + caption.split("#").slice(1).join("#"); // modal hashtags (sorting to only hastags)
   modalDate.classList.add("modal-date"); // class for CSS
   modalDate.textContent = date; // image release date
 
@@ -31,10 +35,12 @@ function createModals(caption, date, id) { // a function that creates modals (de
   modalHeader.appendChild(modalHeadline);
   modalHeader.appendChild(closeBtn);
   modalContent.appendChild(modalDesc);
+  modalContent.appendChild(newLine);
+  modalContent.appendChild(modalTags);
   modalContent.appendChild(modalDate);
   modal.appendChild(modalHeader);
   modal.appendChild(modalContent);
-  modalContainer.appendChild(modal)
+  modalContainer.appendChild(modal);
   body.appendChild(modalContainer);
 }
 
