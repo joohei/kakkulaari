@@ -357,6 +357,11 @@ body.is-active {
   line-height: 24px;
 }
 
+.modal-date {
+  text-align: right;
+  margin-top: 10px;
+}
+
 .content.pastry {
   margin: 10px auto;
   width: 100%;

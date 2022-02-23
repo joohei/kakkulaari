@@ -1,4 +1,4 @@
-function createModals(caption, id) { // a function that creates modals (description popups) for each image
+function createModals(caption, date, id) { // a function that creates modals (description popups) for each image
 
   // creating elements and defining existing ones
   let body = document.body // defining body
@@ -9,8 +9,9 @@ function createModals(caption, id) { // a function that creates modals (descript
   let closeBtn = document.createElement("button"); // button for closing the modal
   let modalContent = document.createElement("div"); // container for modal text
   let modalDesc = document.createElement("p"); // modal text
+  let modalDate = document.createElement("h5"); // release date of image
 
-  // adding necessary attributes to each modal piece
+  // adding necessary attributes and text to each modal piece
   modalContainer.classList.add("modal-container"); // class for CSS
   modalContainer.setAttribute("id", id); // id for identifying which image it's connected to
   modal.classList.add("modal"); // class for CSS
@@ -23,11 +24,14 @@ function createModals(caption, id) { // a function that creates modals (descript
   modalContent.classList.add("modal-content"); // class for CSS
   modalDesc.classList.add("modal-text"); // class for CSS
   modalDesc.textContent = caption; // modal text
+  modalDate.classList.add("modal-date"); // class for CSS
+  modalDate.textContent = date; // image release date
 
   // appending everything together and lastly to the parent element
   modalHeader.appendChild(modalHeadline);
   modalHeader.appendChild(closeBtn);
   modalContent.appendChild(modalDesc);
+  modalContent.appendChild(modalDate);
   modal.appendChild(modalHeader);
   modal.appendChild(modalContent);
   modalContainer.appendChild(modal)
@@ -73,7 +77,13 @@ async function getMedia() { // a function that fetches image links from API.json
     // defining basic info
     let imgUrl = data.data[i].media_url; // defining image url
     let caption = data.data[i].caption; // defining image caption
+    let date = data.data[i].timestamp.substring(0, 10); // extracting date out of API.json
     let imgId = data.data[i].id.toString(); // defining image id
+
+    // formatting release date
+    date = date.split('-'); // first splitting days, months and years
+    date = `${date[2]}.${date[1]}.${date[0]}`; // then reordering to finnish format
+    date = "Julkaistu: " + date; // final text
 
     img.src = imgUrl; // assigning the url to image element
     img.alt = "Instagram API photo"; // setting alternative text
@@ -113,7 +123,7 @@ async function getMedia() { // a function that fetches image links from API.json
       }
     }
     gallery.appendChild(img); // lastly appending image to parent item
-    createModals(caption, imgId) // and creating modal for the image (description popup)
+    createModals(caption, date, imgId) // and creating modal for the image (description popup)
   }
 }
 
