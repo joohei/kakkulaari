@@ -330,7 +330,7 @@ body.is-active {
 }
 
 .modal {
-  margin-top: 20%;
+  margin-top: 63px;
   background: var(--light);
   border-radius: 10px;
   width: 1000px;
