@@ -128,10 +128,6 @@ h1 {
 body.is-active {
   height: 100%;
   overflow: hidden;
-
-  -webkit-scrollbar {
-    display: none
-  }
 }
 
 .mobile-nav a {
