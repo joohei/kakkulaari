@@ -281,6 +281,24 @@ body.is-active {
   padding-top: 5px;
 }
 
+.info {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info p {
+  padding: 10px;
+  margin: 10px;
+  background: var(--light);
+  border: 3px solid var(--primary);
+  color: var(--font);
+  border-radius: 10px;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: auto auto;
@@ -288,16 +306,6 @@ body.is-active {
   grid-column-gap: 10px;
   width: 100%;
   justify-content: center;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 .gallery img {
