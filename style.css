@@ -239,13 +239,22 @@ body.is-active {
   height: 20px;
 }
 
-.ig-widget a {
+.img-content .ig-widget a {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 16px;
+  width: 100%;
+  color: blue;
   text-decoration: none;
-  font-size: 10px
 }
 
-.ig-widget a:visited {
-  color: var(--font);
+.content.about .ig-widget a:visited {
+  color: blue;
+}
+
+.content.about .ig-widget a:active {
+  color: blue;
 }
 
 .ig-banner {
@@ -448,7 +457,37 @@ input {
 }
 
 .content.about .ig-widget {
+  padding: 10px 20px 5px;
+  display: block;
+  align-items: baseline;
+}
+
+.content.about .ig-widget h4 {
   display: none;
+}
+
+.content.about .ig-widget a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30px;
+  width: 100%;
+  color: blue;
+  text-decoration: none;
+}
+
+.content.about .ig-widget a:visited {
+  color: blue;
+}
+
+.content.about .ig-widget a:active {
+  color: blue;
+}
+
+.content.about .ig-widget img {
+  margin-left: 10px;
+  width: 10%;
+  height: 10%;
 }
 
 footer {
@@ -665,6 +704,10 @@ footer {
     width: 30%;
   }
 
+  .content.about .ig-widget h4 {
+    display: block;
+  }
+
   .content.about .ig-widget a {
     display: flex;
     justify-content: flex-end;
@@ -672,7 +715,6 @@ footer {
     font-size: 16px;
     width: 100%;
     color: blue;
-    text-decoration: underline;
   }
 
   .content.about .ig-widget a:visited {
