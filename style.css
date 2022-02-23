@@ -296,6 +296,7 @@ body.is-active {
   background: var(--light);
   border: 3px solid var(--primary);
   color: var(--font);
+  font-size: clamp(12px, 2vw, 16px);
   border-radius: 10px;
 }
 
