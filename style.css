@@ -293,11 +293,8 @@ body.is-active {
 .info p {
   padding: 10px;
   margin: 10px;
-  background: none;
-  border: none;
   color: var(--font);
   font-size: clamp(12px, 2vw, 16px);
-  border-radius: 10px;
 }
 
 .gallery {
