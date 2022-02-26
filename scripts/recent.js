@@ -2,7 +2,7 @@ const howMany = 5
 
 async function getMedia() {
   let data = await fetch('API.json')
-    .then(function (response) {
+    .then(function(response) {
       return response.json();
     })
   for (let i = 0; i < howMany; i++) {
@@ -15,7 +15,7 @@ async function getMedia() {
     let img = document.createElement("img");
     let imgUrl = data.data[i].media_url
     img.src = imgUrl;
-    img.alt = data.data[i].caption;
+    img.alt = "Instagram API photo";
     let caption = document.createElement("p");
     let text = document.createTextNode(data.data[i].caption);
     caption.appendChild(text);
