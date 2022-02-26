@@ -66,7 +66,7 @@ async function getMedia() { // a function that fetches image links from API.json
     var filter = searchInput.toLowerCase() // otherwise use the search bar value
   }
 
-  let data = await fetch('API.json') // fetching data from API.json
+  let data = await fetch('scripts/API.json') // fetching data from API.json
     .then(function(response) {
       return response.json();
     })
