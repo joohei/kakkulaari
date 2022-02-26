@@ -512,7 +512,7 @@ footer {
 }
 
 p+p {
-  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .visitor-counter {
