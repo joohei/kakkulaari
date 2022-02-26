@@ -1,2 +1,3 @@
-// In your gatsby-config.js
-plugins: [`gatsby-plugin-netlify`]
+module.exports = {
+  plugins: [`gatsby-plugin-netlify-cms`],
+}
