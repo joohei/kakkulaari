@@ -1,7 +1,7 @@
 const howMany = 5
 
 async function getMedia() {
-  let data = await fetch('scritps/API.json')
+  let data = await fetch('API.json')
     .then(function(response) {
       return response.json();
     })
