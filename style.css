@@ -511,6 +511,10 @@ footer {
   border-top: 3px solid var(--primary);
 }
 
+p+p {
+  padding-bottom: 10px;
+}
+
 .visitor-counter {
   padding: 10px 0;
 }
