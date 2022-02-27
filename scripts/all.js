@@ -98,7 +98,7 @@ async function getMedia() { // a function that fetches image links from API.json
     date = "Julkaistu: " + date; // final text
 
     img.src = "../images/" + imgName; // assigning the source to image element
-    img.alt = "Instagram API photo"; // setting alternative text
+    img.alt = ""; // setting alternative text
     img.setAttribute("img-id", imgId); // setting image id
     img.setAttribute("onclick", `openModal("${imgId}")`)
 
