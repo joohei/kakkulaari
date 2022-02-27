@@ -45,6 +45,7 @@ function createModals(caption, date, id) { // a function that creates modals (de
 }
 
 function openModal(modalId) { // a function that adds open class to modal so it shows
+
   let modal = document.getElementById(modalId); // deifing modal
   let body = document.body // defining body
   modal.classList.add("active"); // adding class
@@ -52,6 +53,7 @@ function openModal(modalId) { // a function that adds open class to modal so it 
 }
 
 function closeModal(modalId) { // a function that removes open class from modal so it hides
+
   let modal = document.getElementById(modalId); // defining modal
   let body = document.body // defining body
   modal.classList.remove("active"); // removing class
@@ -85,7 +87,7 @@ async function getMedia() { // a function that fetches image links from API.json
     dataClass = document.createAttribute("dataclass"); // creating attribute for image elements
 
     // defining basic info
-    let imgUrl = data.data[i].media_url; // defining image url
+    let imgName = data.data[i].media_url.split("/").join("?").split("?")[5]; // defining image file name
     let caption = data.data[i].caption; // defining image caption
     let date = data.data[i].timestamp.substring(0, 10); // extracting date out of API.json
     let imgId = data.data[i].id.toString(); // defining image id
@@ -95,7 +97,7 @@ async function getMedia() { // a function that fetches image links from API.json
     date = `${date[2]}.${date[1]}.${date[0]}`; // then reordering to finnish format
     date = "Julkaistu: " + date; // final text
 
-    img.src = imgUrl; // assigning the url to image element
+    img.src = "../images/" + imgName; // assigning the source to image element
     img.alt = "Instagram API photo"; // setting alternative text
     img.setAttribute("img-id", imgId); // setting image id
     img.setAttribute("onclick", `openModal("${imgId}")`)
