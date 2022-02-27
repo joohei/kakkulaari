@@ -600,6 +600,7 @@ p+p {
     display: flex;
     flex-wrap: wrap;
     width: 70%;
+    height: fit-content;
   }
 
   .intro .wrapper {
