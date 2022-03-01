@@ -47,17 +47,13 @@ function createModals(caption, date, id) { // a function that creates modals (de
 function openModal(modalId) { // a function that adds open class to modal so it shows
 
   let modal = document.getElementById(modalId); // deifing modal
-  let body = document.body // defining body
   modal.classList.add("active"); // adding class
-  body.classList.add("is-active"); // adding class
 }
 
 function closeModal(modalId) { // a function that removes open class from modal so it hides
 
   let modal = document.getElementById(modalId); // defining modal
-  let body = document.body // defining body
   modal.classList.remove("active"); // removing class
-  body.classList.remove("is-active"); // removing class
 }
 
 async function getMedia() { // a function that fetches image links from API.json and appends to parent

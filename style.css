@@ -636,6 +636,7 @@ p+p {
   }
 
   .wrapper.bin {
+    margin-top: 88px;
     padding: 0;
     width: 35vw;
   }
