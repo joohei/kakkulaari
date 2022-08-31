@@ -339,8 +339,8 @@ body.is-active {
   pointer-events: none;
 }
 
-body:has(> modal-container.active) {
-  overflow: hidden; 
+body.no-scroll {
+  overflow: hidden;
 }
 
 .modal-container.active {
