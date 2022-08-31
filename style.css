@@ -339,7 +339,7 @@ body.is-active {
   pointer-events: none;
 }
 
-body > modal-container.active {
+body:has(> modal-container.active) {
   overflow: hidden; 
 }
 
