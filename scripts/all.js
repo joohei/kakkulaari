@@ -48,12 +48,14 @@ function openModal(modalId) { // a function that adds open class to modal so it 
 
   let modal = document.getElementById(modalId); // deifing modal
   modal.classList.add("active"); // adding class
+  document.body.classList.add("no-scroll");
 }
 
 function closeModal(modalId) { // a function that removes open class from modal so it hides
 
   let modal = document.getElementById(modalId); // defining modal
   modal.classList.remove("active"); // removing class
+  document.body.classList.remove("no-scroll");
 }
 
 async function getMedia() { // a function that fetches image links from API.json and appends to parent
