@@ -339,6 +339,10 @@ body.is-active {
   pointer-events: none;
 }
 
+body > modal-container.active {
+  overflow: hidden; 
+}
+
 .modal-container.active {
   pointer-events: auto;
   visibility: visible;
