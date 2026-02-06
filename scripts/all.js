@@ -1,140 +1,133 @@
-function createModals(caption, date, id) { // a function that creates modals (description popups) for each image
-
-  // creating elements and defining existing ones
-  let body = document.body // defining body
-  let modalContainer = document.createElement("div"); // creating the container that contains bot the modal and the overlay
-  let modal = document.createElement("div"); // creating the modal
-  let modalHeader = document.createElement("div"); // container for header elements
-  let modalHeadline = document.createElement("h1"); // modal headline
-  let closeBtn = document.createElement("button"); // button for closing the modal
-  let modalContent = document.createElement("div"); // container for modal text
-  let modalDesc = document.createElement("p"); // modal text
-  let newLine = document.createElement("br"); // newline \n
-  let modalTags = document.createElement("p"); // modal hashtags
-  let modalDate = document.createElement("h5"); // release date of image
-
-  // adding necessary attributes and text to each modal piece
-  modalContainer.classList.add("modal-container"); // class for CSS
-  modalContainer.setAttribute("id", id); // id for identifying which image it's connected to
-  modal.classList.add("modal"); // class for CSS
-  modalHeader.classList.add("modal-header"); // class for CSS
-  modalHeadline.classList.add("modal-title"); // class for CSS
-  modalHeadline.textContent = "kuvaus"; // modal headline
-  closeBtn.classList.add("close-btn"); // class for CSS
-  closeBtn.innerHTML = "&times;"; // button x symbol
-  closeBtn.setAttribute("onclick", `closeModal("${id}")`) // adding functionality to close button
-  modalContent.classList.add("modal-content"); // class for CSS
-  modalDesc.classList.add("modal-text"); // class for CSS
-  modalDesc.textContent = caption.split("#")[0]; // modal text (splitting from hashtags)
-  modalTags.classList.add("modal-text"); // class for CSS
-  modalTags.textContent = "#" + caption.split("#").slice(1).join("#"); // modal hashtags (sorting to only hastags)
-  modalDate.classList.add("modal-date"); // class for CSS
-  modalDate.textContent = date; // image release date
-
-  // appending everything together and lastly to the parent element
-  modalHeader.appendChild(modalHeadline);
-  modalHeader.appendChild(closeBtn);
-  modalContent.appendChild(modalDesc);
-  modalContent.appendChild(newLine);
-  modalContent.appendChild(modalTags);
-  modalContent.appendChild(modalDate);
-  modal.appendChild(modalHeader);
-  modal.appendChild(modalContent);
-  modalContainer.appendChild(modal);
-  body.appendChild(modalContainer);
+function escapeHtml(str = "") {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }
 
-function openModal(modalId) { // a function that adds open class to modal so it shows
+function createModals(caption, date, id) {
+  const body = document.body;
+  const container = document.createElement("div");
+  container.className = "modal-container";
+  container.id = id;
+  container.innerHTML = `
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-${id}">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title-${id}">kuvaus</h2>
+        <button class="close-btn" aria-label="Sulje">&times;</button>
+      </div>
+      <div class="modal-content">
+        <p class="modal-text">${escapeHtml((caption.split("#")[0] || "").trim())}</p>
+        <br>
+        <p class="modal-text">${escapeHtml("#" + caption.split("#").slice(1).join("#"))}</p>
+        <h5 class="modal-date">${escapeHtml(date || "")}</h5>
+      </div>
+    </div>
+  `;
+  body.appendChild(container);
 
-  let modal = document.getElementById(modalId); // deifing modal
-  modal.classList.add("active"); // adding class
+  const closeBtn = container.querySelector(".close-btn");
+  closeBtn.addEventListener("click", () => closeModal(id));
+
+  // Click outside modal to close
+  container.addEventListener("click", (e) => {
+    if (e.target === container) closeModal(id);
+  });
+}
+
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+  modal.classList.add("active");
   document.body.classList.add("no-scroll");
 }
 
-function closeModal(modalId) { // a function that removes open class from modal so it hides
-
-  let modal = document.getElementById(modalId); // defining modal
-  modal.classList.remove("active"); // removing class
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+  modal.classList.remove("active");
   document.body.classList.remove("no-scroll");
 }
 
-async function getMedia() { // a function that fetches image links from API.json and appends to parent
+async function getMedia() {
+  const filterItem = document.querySelector(".item.is-active");
+  const searchInput = (document.getElementById("search")?.value || "").trim();
+  const filter =
+    searchInput === ""
+      ? (
+          (filterItem && filterItem.getAttribute("data-class")) ||
+          "all"
+        ).toLowerCase()
+      : searchInput.toLowerCase();
 
-  // defining filter parameters
-  let filterItem = document.querySelector(".item.is-active"); // defining the currently active filter
-  let searchInput = document.getElementById("search").value; // defining search bar value
+  const data = await fetch("scripts/API.json").then((r) => r.json());
+  const gallery = document.querySelector(".gallery");
+  if (!gallery || !data || !data.data) return;
 
-  if (searchInput == "") { // checks whether the search input is empty
-    var filter = filterItem.getAttribute("dataclass") // if so use the default filter
-  } else {
-    var filter = searchInput.toLowerCase() // otherwise use the search bar value
-  }
+  const frag = document.createDocumentFragment();
 
-  let data = await fetch('scripts/API.json') // fetching data from API.json
-    .then(function(response) {
-      return response.json();
-    })
+  for (const item of data.data) {
+    const img = document.createElement("img");
 
-  const gallery = document.getElementsByClassName("gallery")[0]; // getting parent item
+    const mediaUrl = item.media_url || "";
+    const imgName = mediaUrl.split("/").pop().split("?")[0] || "";
+    const caption = item.caption || "";
+    let dateText = "";
+    if (item.timestamp) {
+      const parts = item.timestamp.substring(0, 10).split("-");
+      if (parts.length === 3)
+        dateText = `Julkaistu: ${parts[2]}.${parts[1]}.${parts[0]}`;
+    }
+    const id = String(item.id);
 
-  for (let i in data.data) { // looping over the array of data, creating image elements and sorting them
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.src = `images/${imgName}`;
+    const captionText = (caption.split("#")[0] || "").trim();
+    const altText = captionText || dateText || "Leivonnainen";
+    img.alt = altText;
+    img.setAttribute("img-id", id);
+    img.addEventListener("click", () => openModal(id));
 
-    // creating elements and attributes
-    let img = document.createElement("img"); // creating image element
-    let tags = document.createAttribute("tags"); // creating attribute for image elements
-    dataClass = document.createAttribute("dataclass"); // creating attribute for image elements
+    const hashtags = caption
+      .split("#")
+      .slice(1)
+      .map((t) => t.trim())
+      .filter(Boolean);
+    img.setAttribute("tags", hashtags.join(","));
+    const lc = hashtags.map((h) => h.toLowerCase());
 
-    // defining basic info
-    let imgName = data.data[i].media_url.split("/").join("?").split("?")[5]; // defining image file name
-    let caption = data.data[i].caption; // defining image caption
-    let date = data.data[i].timestamp.substring(0, 10); // extracting date out of API.json
-    let imgId = data.data[i].id.toString(); // defining image id
+    let dataClass = "other";
+    if (lc.some((h) => h.includes("sweetpastry"))) dataClass = "sweet";
+    else if (lc.some((h) => h.includes("saltypastry"))) dataClass = "salty";
+    img.setAttribute("data-class", dataClass);
 
-    // formatting release date
-    date = date.split('-'); // first splitting days, months and years
-    date = `${date[2]}.${date[1]}.${date[0]}`; // then reordering to finnish format
-    date = "Julkaistu: " + date; // final text
-
-    img.src = "images/" + imgName; // assigning the source to image element
-    img.alt = ""; // setting alternative text
-    img.setAttribute("img-id", imgId); // setting image id
-    img.setAttribute("onclick", `openModal("${imgId}")`)
-
-    // formatting hastags and sorting image based on it
-    hashtags = caption.split("#").slice(1); // formatting caption to extract only hashtags
-    hashtags = hashtags.join("").split(/  | \n| /); // formatting hastags into an array
-    tags.value = hashtags; // giving the tags attribute the value of "hashtags"
-    if (hashtags.includes("sweetpastry")) { // checking whether image belongs to sweet...
-      dataClass.value = "sweet";
-    } else if (hashtags.includes("saltypastry")) { // ...or salty pastries
-      dataClass.value = "salty"; // and assgning the value
+    if (
+      filter === "all" ||
+      filter === dataClass ||
+      lc.some((t) => t.includes(filter))
+    ) {
+      img.classList.add("show");
+      img.classList.remove("hide");
+    } else {
+      img.classList.add("hide");
+      img.classList.remove("show");
     }
 
-    // setting attributes
-    img.setAttributeNode(tags);
-    img.setAttributeNode(dataClass);
-
-    // adding animation to image
-    img.classList.add("animate");
-
-    if (filter == dataClass.value || filter == "all") { // if current filter matches images group, show image
-      img.classList.add("show")
-    } else { // otherwise check if...
-      let tags = img.getAttribute("tags").split(",") // ...formatted tags...
-      for (let tag of tags) {
-        if (tag.includes(filter)) { // ...include the filter
-          img.classList.add("show"); // and if so then show the image
-          img.classList.remove("hide");
-          break; // and break out of loop
-        } else { // if it doesn't exist
-          img.classList.add("hide"); // hide the image
-          img.classList.remove("show");
-        }
-      }
-    }
-    gallery.appendChild(img); // lastly appending image to parent item
-    createModals(caption, date, imgId) // and creating modal for the image (description popup)
+    frag.appendChild(img);
+    createModals(caption, dateText, id);
   }
+
+  gallery.appendChild(frag);
+
+  // let filter.js handle applying current filter after images are ready
+  if (typeof applyFilter === "function") {
+    const active = document.querySelector(".filters .is-active");
+    applyFilter(active?.getAttribute("data-class"));
+  }
+  document.dispatchEvent(new CustomEvent("images:ready"));
 }
 
-getMedia(); // run the script
+getMedia();

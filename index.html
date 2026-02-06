@@ -99,23 +99,27 @@
 
     <div class="wrapper ig">
       <h2>Uusimmat julkaisuni</h2>
+
+      <!-- moved the widget out of .img-content so it won't affect column layout -->
+      <div class="ig-widget">
+        <h4>Instagram</h4>
+        <a href="https://www.instagram.com/kakkulaari" target="_blank" rel="noopener noreferrer">
+          @kakkulaari
+          <img src="photos/instagram.webp" alt="Instagram">
+        </a>
+      </div>
+
       <article class="img-content">
-        <div class="ig-widget">
-          <h4>Instagram</h4>
-          <a href="https://www.instagram.com/kakkulaari" target="_blank" rel="noopener noreferrer">
-            @kakkulaari<img src="photos/instagram.webp" alt="Instagram">
-          </a>
-        </div>
-        <script src="scripts/recent.js"></script>
+        <!-- posts will be appended here by scripts/recent.js -->
       </article>
+
+      <script src="scripts/recent.js"></script>
     </div>
 
   </main>
 
 
   <footer>
-    <span class="visitor-counter"></span>
-    <script src="scripts/visitor.js"></script>
     <p>© 2026 Päivi Heimonen</p>
   </footer>
 

@@ -329,72 +329,118 @@ body.is-active {
   margin-bottom: 40px;
 }
 
+/* switch to column-based masonry so items pack tightly and do not align by row top */
 .img-content {
-  display: grid;
-  gap: 24px;
+  /* use CSS columns for masonry-style layout */
+  display: block;             /* reset from grid */
+  column-gap: 24px;
+  column-count: 1;            /* single column on mobile */
+  column-fill: balance;       /* try to balance columns so they have similar heights */
+  -webkit-column-fill: balance;
+  gap: 0;                     /* grid gap not used with columns */
 }
 
+/* keep the ig header full width and avoid being split across columns */
 .img-content .ig-widget {
+  width: 100%;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0;
-  margin-bottom: 24px;
-}
-
-.img-content .ig-widget h4 {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-primary);
-  padding: 0;
-}
-
-.img-content .ig-widget a {
-  display: inline-flex;
-  align-items: center;
+  flex-direction: column; /* stacked on small screens */
+  align-items: flex-start;
   gap: 8px;
-  color: var(--primary);
-  font-weight: 500;
-  text-decoration: none;
-  transition: var(--transition);
+  padding: 12px;
+  border-bottom: 1px solid var(--warm-gray);
+  background: none;
+  box-shadow: none;
 }
 
-.img-content .ig-widget a:hover {
-  color: var(--primary-dark);
-}
-
-.img-content .ig-widget img {
+/* constrain the instagram icon so it can't become large */
+.img-content .ig-widget img,
+.img-content .ig-widget a img {
   width: 20px;
   height: 20px;
-  padding: 0;
-  margin: 0;
+  max-width: 20px;
+  max-height: 20px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-.img-content h5 {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 0;
-}
-
-.img-content > img {
+/* treat each post as a column item (inline-block) to participate in the masonry flow */
+.img-content .post {
+  display: inline-block;
   width: 100%;
-  max-width: 400px;
-  height: auto;
+  margin: 0 0 24px; /* vertical spacing between items */
+  vertical-align: top;
+  box-sizing: border-box;
+  background: var(--white);
+  padding: 16px;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  padding: 0;
+  border: 1px solid var(--warm-gray);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  break-inside: avoid; /* avoid splitting posts across columns */
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
 }
 
-.img-content p {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin: 0;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--warm-gray);
+/* keep the image and caption styles intact but reserve space using aspect-ratio */
+.img-content .post img {
+  width: 100%;
+  height: auto;            /* let aspect-ratio determine height */
+  aspect-ratio: 4 / 3;     /* reserve consistent space to avoid reflow */
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+/* JS-driven masonry layout (fallback to CSS columns left intact if JS not used) */
+.img-content.js-masonry {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.img-content.js-masonry .masonry-column {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.img-content.js-masonry .masonry-column .post {
+  display: block; /* ensure block flow inside columns */
+  margin-bottom: 24px;
+  break-inside: avoid; /* safe-guard */
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+}
+
+/* Responsive: increase column count at wider breakpoints and switch ig-widget to row */
+@media (min-width: 768px) {
+  .img-content {
+    column-count: 2;
+    column-gap: 24px;
+  }
+  .img-content .ig-widget {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .img-content .post img {
+    height: 260px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .img-content {
+    column-count: 3;
+    column-gap: 24px;
+  }
+  .img-content .post img {
+    height: 300px;
+  }
 }
 
 /* Gallery Page */
@@ -851,12 +897,58 @@ footer span {
     padding: 60px;
   }
 
-  .img-content {
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  }
-
   .gallery {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 24px;
+  }
+}
+
+/* Wrapper-level IG header (outside the masonry .img-content) */
+.wrapper.ig > .ig-widget {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* stacked on small screens */
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--warm-gray);
+  margin-bottom: 12px;
+  box-shadow: none;
+}
+
+.wrapper.ig > .ig-widget h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* increase gap between name and icon and constrain the icon size */
+.wrapper.ig > .ig-widget a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;             /* slightly larger gap than before */
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.wrapper.ig > .ig-widget a img {
+  width: 18px;
+  height: 18px;
+  max-width: 18px;
+  max-height: 18px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* larger screens: place heading and link on a single row */
+@media (min-width: 768px) {
+  .wrapper.ig > .ig-widget {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }

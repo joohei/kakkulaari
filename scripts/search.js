@@ -1,30 +1,37 @@
 const searchInput = document.querySelector("[data-search]");
-const searchImg = document.getElementsByTagName("img");
-const filterList = document.getElementsByClassName("item");
-for (let filter of filterList) {
-  if (filter.getAttribute("dataClass") == "all") {
-    var allFilter = filter;
-    break;
-  }
-}
-
-searchInput.addEventListener("input", function (e) {
-  var currentFilter = document.querySelector(".item.is-active");
-  currentFilter.classList.remove("is-active");
-  allFilter.classList.add("is-active");
-  var value = e.target.value.toLowerCase();
-  for (let image of searchImg) {
-    tagList = image.getAttribute("tags").split(",");
-    for (let tag of tagList) {
-      if (tag.includes(value)) {
-        image.classList.add("show");
-        image.classList.remove("hide");
-        break;
-      }
-      else {
-        image.classList.add("hide");
-        image.classList.remove("show");
-      }
+if (searchInput) {
+  searchInput.addEventListener("input", (e) => {
+    const value = e.target.value.trim().toLowerCase();
+    const imgs = document.querySelectorAll(".gallery img");
+    const filters = document.querySelector(".filters");
+    if (filters && value !== "") {
+      filters.querySelector(".is-active")?.classList.remove("is-active");
+      const allFilter = filters.querySelector('.item[data-class="all"]');
+      if (allFilter) allFilter.classList.add("is-active");
     }
-  }
-});
+
+    if (value === "") {
+      // restore filtered view
+      const active = document.querySelector(".filters .is-active");
+      if (typeof applyFilter === "function")
+        applyFilter(active?.getAttribute("data-class"));
+      return;
+    }
+
+    imgs.forEach((img) => {
+      const tagsAttr = img.getAttribute("tags") || "";
+      const tags = tagsAttr
+        .split(",")
+        .map((t) => t.trim().toLowerCase())
+        .filter(Boolean);
+      const matches = tags.some((t) => t.includes(value));
+      if (matches) {
+        img.classList.add("show");
+        img.classList.remove("hide");
+      } else {
+        img.classList.add("hide");
+        img.classList.remove("show");
+      }
+    });
+  });
+}

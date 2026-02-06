@@ -1,32 +1,70 @@
-const howMany = 5
+const howMany = 5;
 
 async function getMedia() {
-  let data = await fetch('scripts/API.json')
-    .then(function(response) {
-      return response.json();
-    })
-  for (let i = 0; i < howMany; i++) {
-    let header = document.createElement("h5")
-    let date = data.data[i].timestamp.substring(0, 10);
-    date = date.split('-');
-    date = `${date[2]}.${date[1]}.${date[0]}`;
-    date = document.createTextNode("Julkaistu: " + date);
-    header.appendChild(date);
-    let img = document.createElement("img");
-    // Extract filename from URL and use local images instead of expired Instagram CDN URLs
-    let mediaUrl = data.data[i].media_url || '';
-    let imgName = mediaUrl.split('/').pop().split('?')[0]; // Get last path segment, remove query params
-    img.src = imgName ? "images/" + imgName : "images/placeholder";
-    let caption = data.data[i].caption || '';
-    img.alt = caption.split("#")[0].trim() || "Leivonnainen"; // Use caption as alt text, fallback if empty
-    let captionEl = document.createElement("p");
-    let text = document.createTextNode(caption);
-    captionEl.appendChild(text);
-    let article = document.getElementsByClassName("img-content")[0];
-    article.appendChild(header);
-    article.appendChild(img);
-    article.appendChild(captionEl);
+  const data = await fetch("scripts/API.json").then((r) => r.json());
+  const container = document.querySelector(".img-content");
+  if (!container || !data || !data.data) return;
+
+  const posts = [];
+  for (let i = 0; i < Math.min(howMany, data.data.length); i++) {
+    const item = data.data[i];
+    const post = document.createElement("article");
+    post.className = "post";
+
+    const header = document.createElement("h5");
+    header.textContent = `Julkaistu: ${item.timestamp.substring(0, 10).split("-").reverse().join(".")}`;
+
+    const img = document.createElement("img");
+    img.loading = "lazy";
+    img.decoding = "async";
+    const mediaUrl = item.media_url || "";
+    const imgName = mediaUrl.split("/").pop().split("?")[0] || "";
+    img.src = imgName ? `images/${imgName}` : "images/placeholder.png";
+    img.onerror = () => {
+      if (!img.dataset._errored) {
+        img.dataset._errored = "1";
+        img.src = "images/placeholder.png";
+      }
+    };
+    img.alt = (item.caption || "").split("#")[0].trim() || "Leivonnainen";
+
+    const captionEl = document.createElement("p");
+    captionEl.textContent = item.caption || "";
+
+    post.append(header, img, captionEl);
+    posts.push(post);
   }
+
+  function colsCount() {
+    if (window.innerWidth >= 1024) return 3;
+    if (window.innerWidth >= 768) return 2;
+    return 1;
+  }
+
+  function balanceMasonry() {
+    container.classList.add("js-masonry");
+    container.innerHTML = "";
+    const cols = colsCount();
+    const columns = Array.from({ length: cols }, () => {
+      const c = document.createElement("div");
+      c.className = "masonry-column";
+      container.appendChild(c);
+      return c;
+    });
+    for (const p of posts) {
+      let shortest = columns[0];
+      for (const c of columns)
+        if (c.offsetHeight < shortest.offsetHeight) shortest = c;
+      shortest.appendChild(p);
+    }
+  }
+
+  balanceMasonry();
+  let rt;
+  window.addEventListener("resize", () => {
+    clearTimeout(rt);
+    rt = setTimeout(balanceMasonry, 150);
+  });
 }
 
 getMedia();
