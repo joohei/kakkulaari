@@ -62,7 +62,7 @@ async function getMedia() {
         ).toLowerCase()
       : searchInput.toLowerCase();
 
-  const data = await fetch("scripts/API.json").then((r) => r.json());
+  const data = await fetch("/scripts/API.json").then((r) => r.json());
   const gallery = document.querySelector(".gallery");
   if (!gallery || !data || !data.data) return;
 
