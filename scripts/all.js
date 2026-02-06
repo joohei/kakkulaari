@@ -70,7 +70,7 @@ async function getMedia() { // a function that fetches image links from API.json
     var filter = searchInput.toLowerCase() // otherwise use the search bar value
   }
 
-  let data = await fetch('API.json') // fetching data from API.json
+  let data = await fetch('scripts/API.json') // fetching data from API.json
     .then(function(response) {
       return response.json();
     })
@@ -95,7 +95,7 @@ async function getMedia() { // a function that fetches image links from API.json
     date = `${date[2]}.${date[1]}.${date[0]}`; // then reordering to finnish format
     date = "Julkaistu: " + date; // final text
 
-    img.src = "../images/" + imgName; // assigning the source to image element
+    img.src = "images/" + imgName; // assigning the source to image element
     img.alt = ""; // setting alternative text
     img.setAttribute("img-id", imgId); // setting image id
     img.setAttribute("onclick", `openModal("${imgId}")`)

@@ -4,9 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kakkulaari galleria - Kaikki leivonnaiset yhdessä paikassa. Selaa makeita ja suolaisia herkkuja.">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <title>kakkulaari | Galleria</title>
 </head>
 
@@ -17,12 +19,12 @@
       <h1>kakkulaari</h1>
 
       <div class="menu">
-        <a href="https://kakkulaari.fi/">etusivu</a>
-        <a class="is-active">galleria</a>
-        <a href="https://kakkulaari.fi/about">tarina</a>
+        <a href="index.html">etusivu</a>
+        <a class="is-active" href="gallery.html">galleria</a>
+        <a href="about.html">tarina</a>
       </div>
 
-      <button class="hamburger">
+      <button class="hamburger" aria-label="Avaa valikko">
         <span></span>
         <span></span>
         <span></span>
@@ -31,15 +33,15 @@
   </nav>
 
   <nav class="mobile-nav">
-    <a href="https://kakkulaari.fi/">etusivu</a>
-    <a class="is-active">galleria</a>
-    <a href="https://kakkulaari.fi/about">tarina</a>
+    <a href="index.html">etusivu</a>
+    <a class="is-active" href="gallery.html">galleria</a>
+    <a href="about.html">tarina</a>
   </nav>
 
-  <div class="content pastry">
+  <main class="content pastry">
     <div class="search-wrapper">
-      <label for="search"></label>
-      <input type="search" id="search" placeholder="Etsi kuvaa..." autocomplete="off" data-search>
+      <label for="search" class="visually-hidden">Etsi kuvaa</label>
+      <input type="search" id="search" placeholder="Etsi kuvaa hakusanalla..." autocomplete="off" data-search>
     </div>
     <div class="filter-wrapper">
       <div class="filters">
@@ -49,17 +51,17 @@
       </div>
     </div>
     <div class="info">
-      <p>Klikkaa kuvaa nähdäksesi tarkemman kuvauksen</p>
+      <p>💡 Klikkaa kuvaa nähdäksesi tarkemman kuvauksen</p>
     </div>
     <div class="gallery">
       <script src="scripts/all.js"></script>
     </div>
-  </div>
+  </main>
 
   <footer>
     <span class="visitor-counter"></span>
     <script src="scripts/visitor.js"></script>
-    © 2022 Copyright: Päivi Heimonen
+    <p>© 2026 Päivi Heimonen</p>
   </footer>
 
   <script src="scripts/hamburger.js"></script>

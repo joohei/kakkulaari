@@ -1,7 +1,7 @@
 const howMany = 5
 
 async function getMedia() {
-  let data = await fetch('API.json')
+  let data = await fetch('scripts/API.json')
     .then(function(response) {
       return response.json();
     })
@@ -13,16 +13,19 @@ async function getMedia() {
     date = document.createTextNode("Julkaistu: " + date);
     header.appendChild(date);
     let img = document.createElement("img");
-    let imgUrl = data.data[i].media_url
-    img.src = imgUrl;
-    img.alt = "Instagram API photo";
-    let caption = document.createElement("p");
-    let text = document.createTextNode(data.data[i].caption);
-    caption.appendChild(text);
+    // Extract filename from URL and use local images instead of expired Instagram CDN URLs
+    let mediaUrl = data.data[i].media_url || '';
+    let imgName = mediaUrl.split('/').pop().split('?')[0]; // Get last path segment, remove query params
+    img.src = imgName ? "images/" + imgName : "images/placeholder";
+    let caption = data.data[i].caption || '';
+    img.alt = caption.split("#")[0].trim() || "Leivonnainen"; // Use caption as alt text, fallback if empty
+    let captionEl = document.createElement("p");
+    let text = document.createTextNode(caption);
+    captionEl.appendChild(text);
     let article = document.getElementsByClassName("img-content")[0];
     article.appendChild(header);
     article.appendChild(img);
-    article.appendChild(caption);
+    article.appendChild(captionEl);
   }
 }
 

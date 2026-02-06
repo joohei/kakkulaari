@@ -4,8 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kakkulaari - Kauniita ja hyvänmakuisia erikoiskakkuja Espoosta. Inspiroivia kakkuideoita ja leivontaa.">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <title>kakkulaari | Etusivu</title>
 </head>
 
@@ -16,12 +19,12 @@
       <h1>kakkulaari</h1>
 
       <div class="menu">
-        <a class="is-active">etusivu</a>
-        <a href="https://kakkulaari.fi/gallery">galleria</a>
-        <a href="https://kakkulaari.fi/about">tarina</a>
+        <a class="is-active" href="index.html">etusivu</a>
+        <a href="gallery.html">galleria</a>
+        <a href="about.html">tarina</a>
       </div>
 
-      <button class="hamburger">
+      <button class="hamburger" aria-label="Avaa valikko">
         <span></span>
         <span></span>
         <span></span>
@@ -30,24 +33,25 @@
   </nav>
 
   <nav class="mobile-nav">
-    <a class="is-active">etusivu</a>
-    <a href="https://kakkulaari.fi/gallery">galleria</a>
-    <a href="https://kakkulaari.fi/about">tarina</a>
+    <a class="is-active" href="index.html">etusivu</a>
+    <a href="gallery.html">galleria</a>
+    <a href="about.html">tarina</a>
   </nav>
 
-  <div class="content front-page">
+  <main class="content front-page">
+
+    <div class="welcome">
+      <p class="welcome-text">Tervetuloa nettisivuilleni! Täällä voit katsella leivonnaisiani ja hakea inspiraatiota omiisi.</p>
+    </div>
 
     <div class="intro">
-      <p class="welcome">Tervetuloa nettisivuilleni! Täällä voit katsella leivonnaisiani ja hakea inspiraatiota omiisi.</p>
+      <h2>Kakkufilosofiani</h2>
+      
       <div class="wrapper flower">
-        <h2>Kakkufilosofiani</h2>
-        <img src="photos/flower.webp" alt="" class="img-flower">
+        <img src="photos/flower.webp" alt="Sokerimassakukin koristeltu suklaakakku" class="img-flower">
         <article class="img-info">
-          <p>
-            Tärkeintä on tehdä kauniita ja hyvänmakuisia kakkuja:
-          </p>
           <p class="quote">
-            ”Kakun tulee olla herkullista ja kahvipöydän keskipiste”
+            "Kakun tulee olla herkullista ja kahvipöydän keskipiste"
           </p>
           <p>
             Tätä sokerimassakukin koristeltua suklaakakkua nautittiin mieheni äidin syntymäpäivillä.
@@ -56,11 +60,8 @@
       </div>
 
       <div class="wrapper bin">
-        <img src="photos/bin.webp" alt="" class="img-bin">
+        <img src="photos/bin.webp" alt="Kukkalaatikkokakku" class="img-bin">
         <article class="img-info">
-          <p>
-            Tässä mango-aprikoositäytteisessä kakussa kiteytyy kakkuharrastukseni ydinajatus:
-          </p>
           <p class="quote">
             "Kakku ei saa näyttää kakulta ja kaiken kakussa tulisi olla syötävää"
           </p>
@@ -71,13 +72,10 @@
       </div>
 
       <div class="wrapper cheese">
-        <img src="photos/cheese.webp" alt="" class="img-cheese">
+        <img src="photos/cheese.webp" alt="Leikkuulautakakku juustoineen" class="img-cheese">
         <article class="img-info">
-          <p>
-            Kolmas minulle tärkeä tavoite:
-          </p>
           <p class="quote">
-            ”Kakun tulisi olla hauska ja yllättävä”
+            "Kakun tulisi olla hauska ja yllättävä"
           </p>
           <p>
             Tämä leikkuulauta juustoineen on vaaleaa kakkua lakkatäytteellä. Tässäkin kakussa kaikki on syötävää, myös leikkuulauta.
@@ -86,13 +84,10 @@
       </div>
 
       <div class="wrapper cat">
-        <img src="photos/cat.webp" alt="" class="img-cat">
+        <img src="photos/cat.webp" alt="Kissakakku" class="img-cat">
         <article class="img-info">
-          <p>
-            Kakkua voi leipoa ja tarjota milloin tahansa:
-          </p>
           <p class="quote">
-            ”Ei niin pientä juhlaa, etteikö voi leipoa kakkua”
+            "Ei niin pientä juhlaa, etteikö voi leipoa kakkua"
           </p>
           <p>
             Tällä läpeensä suklaisella kakulla juhlistettiin Molla-kissamme syntymäpäivää.
@@ -107,21 +102,21 @@
       <article class="img-content">
         <div class="ig-widget">
           <h4>Instagram</h4>
-          <a href="https://www.instagram.com/kakkulaari">
-            @kakkulaari<img src="photos/instagram.webp" alt="">
+          <a href="https://www.instagram.com/kakkulaari" target="_blank" rel="noopener noreferrer">
+            @kakkulaari<img src="photos/instagram.webp" alt="Instagram">
           </a>
         </div>
         <script src="scripts/recent.js"></script>
       </article>
     </div>
 
-  </div>
+  </main>
 
 
   <footer>
     <span class="visitor-counter"></span>
     <script src="scripts/visitor.js"></script>
-    © 2022 Copyright: Päivi Heimonen
+    <p>© 2026 Päivi Heimonen</p>
   </footer>
 
   <script src="scripts/hamburger.js"></script>
