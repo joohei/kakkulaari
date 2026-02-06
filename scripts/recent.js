@@ -14,16 +14,18 @@ async function getMedia() {
     header.appendChild(date);
     let img = document.createElement("img");
     // Extract filename from URL and use local images instead of expired Instagram CDN URLs
-    let imgName = data.data[i].media_url.split("/").join("?").split("?")[5];
-    img.src = "images/" + imgName;
-    img.alt = data.data[i].caption.split("#")[0].trim(); // Use caption as alt text
-    let caption = document.createElement("p");
-    let text = document.createTextNode(data.data[i].caption);
-    caption.appendChild(text);
+    let mediaUrl = data.data[i].media_url || '';
+    let imgName = mediaUrl.split('/').pop().split('?')[0]; // Get last path segment, remove query params
+    img.src = imgName ? "images/" + imgName : "images/placeholder";
+    let caption = data.data[i].caption || '';
+    img.alt = caption.split("#")[0].trim() || "Leivonnainen"; // Use caption as alt text, fallback if empty
+    let captionEl = document.createElement("p");
+    let text = document.createTextNode(caption);
+    captionEl.appendChild(text);
     let article = document.getElementsByClassName("img-content")[0];
     article.appendChild(header);
     article.appendChild(img);
-    article.appendChild(caption);
+    article.appendChild(captionEl);
   }
 }
 
