@@ -13,9 +13,10 @@ async function getMedia() {
     date = document.createTextNode("Julkaistu: " + date);
     header.appendChild(date);
     let img = document.createElement("img");
-    let imgUrl = data.data[i].media_url
-    img.src = imgUrl;
-    img.alt = "Instagram API photo";
+    // Extract filename from URL and use local images instead of expired Instagram CDN URLs
+    let imgName = data.data[i].media_url.split("/").join("?").split("?")[5];
+    img.src = "images/" + imgName;
+    img.alt = data.data[i].caption.split("#")[0].trim(); // Use caption as alt text
     let caption = document.createElement("p");
     let text = document.createTextNode(data.data[i].caption);
     caption.appendChild(text);
