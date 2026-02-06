@@ -4,8 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kakkulaari tarina - Tutustu Päiviin, espoolaiseen harrastelijaleipuriin ja hänen kakkufilosofiaansa.">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <title>kakkulaari | Tarina</title>
 </head>
 
@@ -16,12 +19,12 @@
       <h1>kakkulaari</h1>
 
       <div class="menu">
-        <a href="https://kakkulaari.fi/">etusivu</a>
-        <a href="https://kakkulaari.fi/gallery">galleria</a>
-        <a class="is-active">tarina</a>
+        <a href="index.html">etusivu</a>
+        <a href="gallery.html">galleria</a>
+        <a class="is-active" href="about.html">tarina</a>
       </div>
 
-      <button class="hamburger">
+      <button class="hamburger" aria-label="Avaa valikko">
         <span></span>
         <span></span>
         <span></span>
@@ -30,12 +33,12 @@
   </nav>
 
   <nav class="mobile-nav">
-    <a href="https://kakkulaari.fi/">etusivu</a>
-    <a href="https://kakkulaari.fi/gallery">galleria</a>
-    <a class="is-active">tarina</a>
+    <a href="index.html">etusivu</a>
+    <a href="gallery.html">galleria</a>
+    <a class="is-active" href="about.html">tarina</a>
   </nav>
 
-  <div class="content about">
+  <main class="content about">
     <article class="story">
       <p>
         Hei!
@@ -46,34 +49,31 @@
         hyydykekakut ja koristellut
         focacciat kuuluvat suosikkeihini.
       </p>
-      <br>
       <p>
         Kakkuinnostukseni alkoi vuonna 2012, kun poikani Joona toivoi 7v syntymäpäivilleen jalkapalloaiheista kakkua. Tämän jälkeen sain joka vuosi uuden kakkuhaasteen: aarrearkku, Lego, jalkapallokengät, hampurilainen, pizza, sulkapallomaila
-        jne. Vietimme Joonan syntymäpäiviä usein kolmessa osassa, jolloin sain hyvän syyn tehdä kolme erilaista kakkua. Tästä muotoutuikin ns. ”kakkutrilogiat” eli kolmen kakun sarjat samalla teemalla. Trilogiakakkuja olen tehnyt karkki-, peli- ja
+        jne. Vietimme Joonan syntymäpäiviä usein kolmessa osassa, jolloin sain hyvän syyn tehdä kolme erilaista kakkua. Tästä muotoutuikin ns. "kakkutrilogiat" eli kolmen kakun sarjat samalla teemalla. Trilogiakakkuja olen tehnyt karkki-, peli- ja
         herkkuruoka-teemalla. Näiden syntymäpäiväkakkujen lisäksi kakkuja on tullut vuosien saatossa tehtyä eri teemoilla ja aihepiireillä jos jonkinmoisiin kissanristiäisiin, kirjaimellisesti.
       </p>
-      <img src="photos/football.webp" alt="">
-      <br>
+      <img src="photos/football.webp" alt="Jalkapallokakku">
       <p>
         Leivontaoppini olen alun perin saanut äidiltäni. Äiti leipoi perheemme kaikki leivät ja pullat käyttäen niissä myös kotitilan jyvistä jauhettuja jauhoja. Äidin leivonta repertuaariin kuului niin ruisleivät, hiivaleivät, rieskat, sämpylät,
         pasteijat,
         pullat,
         tortut, piirakat, piparit, pikkuleivät, kuivakakut kuin perinteiset kermatäytekakutkin. Oma leivontarepertuaarini on paljon rajoittuneempi ja erityisesti leivän leivonnan osalta en yllä likimainkaan äitini tasolle.
       </p>
-      <br>
       <p>
-        Sana ”kakkulaari” liittyy tähän historiaan ja on kunnianosoitus äitini leivontaopeille ja -taidoille sekä äidin leivonnassa käyttämille jauhoille.
+        Sana "kakkulaari" liittyy tähän historiaan ja on kunnianosoitus äitini leivontaopeille ja -taidoille sekä äidin leivonnassa käyttämille jauhoille.
       </p>
-      <br>
       <div class="wikipedia">
         <p>
-          Wikipedia:<br>
+          <strong>Wikipedia:</strong>
+        </p>
+        <p>
           <strong>kakku</strong> on leivonnainen, joka tehdään useimmiten sokerista, kananmunista, jauhoista ja leivinjauheesta valmistetusta taikinasta.
         </p>
         <p>
           <strong>laari</strong> on seinämillä muusta tilasta erotettu juuresten, viljan tai muiden maataloustuotteiden varastointipaikka.
         </p>
-        <br>
       </div>
       <p>
         Pidän kakkujen leivonnassa erityisesti suunnittelemisesta. Ensimmäisenä ideoin tilanteeseen sopivan aiheen, jonka ympäriltä lähden pohtimaan eri vaihtoehtoja sekä mahdollisia toteutustapoja. Tähän osuuteen käytän yleensä paljon aikaa etsien
@@ -83,60 +83,51 @@
         On erityisen mielenkiintoista miettiä miten jonkin asian saa näyttämään joltain, esim. miten sokerimassan saa näyttämään puulta, lasilta, kiveltä tai kankaalta. Kaikkeen ei suinkaan tarvitse hankkia valmiita erikoisvälineitä
         leivontatarvikekaupasta. Tarvitaan vain hieman kekseliäisyyttä ja luovaa hulluutta. Esimerkiksi puukuviosapluunan saa tehtyä narusta ja tuorekelmusta.
       </p>
-      <img src="photos/wood.webp" alt="">
-      <br>
+      <img src="photos/wood.webp" alt="Puukuviokakku">
       <p>
         Olipa suunnitelma miten hyvä tahansa, niin toteutusvaiheessa sitä joutuu lähes aina muuttamaan lennossa suuntaan tai toiseen. Siksi varaudun yleensä valmiiksi muutamaankin vaihtoehtoiseen toteutustapaan. Lopputulos ja toteutus vastaa siis
         harvoin täysin alkuperäistä suunnitelmaa. Juuri tämä tekeekin kakun teosta kiehtovaa, koska oman luovuuden käyttämiselle ei ole ylärajaa ja lopputulos saattaa yllättää minut itsenikin.
       </p>
-      <br>
-      <h3>
-        Kakkuiluni saamat huomioinnit
-      </h3>
-      <br>
+
+      <h3>Kakkuiluni saamat huomioinnit</h3>
       <p>
         <a href="https://www.kinuskikissa.fi/onnea-kesakakkukisan-voittajille">Kinuskikissan kesäkakkukilpailussa</a> pääsin jaetulle ensimmäiselle sijalle Mansikkakiulukakulla vuonna 2013.
       </p>
-      <img src="photos/strawberry.webp" alt="">
-      <br>
+      <img src="photos/strawberry.webp" alt="Mansikkakiulukakku">
       <p>
         Joonan syntymäpäiväkakkutrilogiasta julkaistiin juttu <a href="https://www.mtvuutiset.fi/makuja/artikkeli/paivi-leipoi-allistyttavat-synttarikakut-15-vuotiaalle-pojalleen-yksi-vieraista-ei-viela-leikkausvaiheessakaan-ollut-uskoa-etta-tama-oikeasti-on-kakkua/7717160#gs.pocyue">MTV-uutissivustolla</a> vuonna 2020.
       </p>
-      <img src="photos/trilogy.webp" alt="">
-      <br>
+      <img src="photos/trilogy.webp" alt="Kakkutrilogia">
       <p>
         Maku-lehti julkaisi jutun kakkuilustani. Juttu julkaistiin 6/2023 Maku-lehdessä ja <a href="https://www.meillakotona.fi/artikkelit/allistyttavia-kakkuja">meilläkotona-sivustolla</a>.
       </p>
-      <img src="photos/thumbnail.webp" alt="">
+      <img src="photos/thumbnail.webp" alt="Maku-lehti">
       <p>
         Myös tälle kakkulaari-sivustolle sain alkukimmokkeen Joonalta, joka halusi harjoitella nettisivujen tekemistä koodaamalla. Tämä on ollut yhteinen projektimme, joka on ollut hyvin antoisa ja opettavainen meille molemmille! Tässä projektissa Joona oli vastuussa toteutuksesta.
       </p>
-      <br>
       <p>
         Sekä kakkuharrastukseni että tämän kakkulaari-sivuston syntyminen on siis Joonan ansiota.
       </p>
-      <br>
       <p>
         Kiitos Joona! ❤️
       </p>
     </article>
 
-    <div class="ig-widget">
-      <img src="photos/portrait.webp" alt="" class="img-portrait">
+    <aside class="ig-widget">
+      <img src="photos/portrait.webp" alt="Päivi Heimonen" class="img-portrait">
       <div class="ig-links">
-        <h4>Instagram</h4>
-        <a href="https://www.instagram.com/kakkulaari">
-          @kakkulaari<img src="photos/instagram.webp" alt="">
+        <a href="https://www.instagram.com/kakkulaari" target="_blank" rel="noopener noreferrer">
+          @kakkulaari<img src="photos/instagram.webp" alt="Instagram">
         </a>
       </div>
       <p>Sähköposti: <a href="mailto:kakkulaari@gmail.com">kakkulaari@gmail.com</a></p>
-    </div>
-  </div>
+    </aside>
+  </main>
 
   <footer>
     <span class="visitor-counter"></span>
     <script src="scripts/visitor.js"></script>
-    © 2022 Copyright: Päivi Heimonen
+    <p>© 2024 Päivi Heimonen</p>
   </footer>
 
   <script src="scripts/hamburger.js"></script>
