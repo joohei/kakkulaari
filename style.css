@@ -17,6 +17,8 @@
   --radius-md: 12px;
   --radius-lg: 20px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --container-max-width: 1200px;
+  --container-wide: 1400px;
 }
 
 * {
@@ -52,7 +54,7 @@ body {
 
 /* Navigation */
 .container {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -252,7 +254,7 @@ body.is-active {
 
 /* Philosophy Cards */
 .intro {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0 24px 60px;
 }
@@ -314,7 +316,7 @@ body.is-active {
   background: transparent;
   box-shadow: none;
   padding: 40px 24px 60px;
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
 }
 
@@ -398,7 +400,7 @@ body.is-active {
 /* Gallery Page */
 .content.pastry {
   padding: 100px 24px 60px;
-  max-width: 1400px;
+  max-width: var(--container-wide);
   margin: 0 auto;
 }
 
@@ -817,7 +819,7 @@ footer span {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 40px;
-    max-width: 1200px;
+    max-width: var(--container-max-width);
   }
 
   .story {
