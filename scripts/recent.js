@@ -1,7 +1,7 @@
 const howMany = 5;
 
 async function getMedia() {
-  const data = await fetch("scripts/API.json").then((r) => r.json());
+  const data = await fetch("/scripts/API.json").then((r) => r.json());
   const container = document.querySelector(".img-content");
   if (!container || !data || !data.data) return;
 
@@ -19,13 +19,7 @@ async function getMedia() {
     img.decoding = "async";
     const mediaUrl = item.media_url || "";
     const imgName = mediaUrl.split("/").pop().split("?")[0] || "";
-    img.src = imgName ? `images/${imgName}` : "images/placeholder.png";
-    img.onerror = () => {
-      if (!img.dataset._errored) {
-        img.dataset._errored = "1";
-        img.src = "images/placeholder.png";
-      }
-    };
+    img.src = `/images/${imgName}`;
     img.alt = (item.caption || "").split("#")[0].trim() || "Leivonnainen";
 
     const captionEl = document.createElement("p");

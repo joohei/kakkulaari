@@ -84,7 +84,7 @@ async function getMedia() {
 
     img.loading = "lazy";
     img.decoding = "async";
-    img.src = `images/${imgName}`;
+    img.src = `/images/${imgName}`;
     const captionText = (caption.split("#")[0] || "").trim();
     const altText = captionText || dateText || "Leivonnainen";
     img.alt = altText;
