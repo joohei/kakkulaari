@@ -18,7 +18,7 @@ async function getMedia() {
     img.loading = "lazy";
     img.decoding = "async";
     const mediaUrl = item.media_url || "";
-    const imgName = mediaUrl.split("/").pop().split("?")[0] || "";
+    const imgName = item.local_image_name || `${item.id}.webp`;
     img.src = `/images/${imgName}`;
     img.alt = (item.caption || "").split("#")[0].trim() || "Leivonnainen";
 
