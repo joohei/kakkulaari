@@ -72,7 +72,7 @@ async function getMedia() {
     const img = document.createElement("img");
 
     const mediaUrl = item.media_url || "";
-    const imgName = mediaUrl.split("/").pop().split("?")[0] || "";
+    const imgName = item.local_image_name || `${item.id}.webp`;
     const caption = item.caption || "";
     let dateText = "";
     if (item.timestamp) {
